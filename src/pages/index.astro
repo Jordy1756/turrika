@@ -15,7 +15,7 @@ import Footer from "@components/Footer.astro";
         <p class="center">se <span>unieron</span></p>
         <p class="end">junto al fuego</p>
         <p class="start">en manos</p>
-        <p class="end">una <span>joya local</span></p>
+        <p class="end">de <span>Turrialba</span></p>
     </History>
     <Ingredients />
     <History>
@@ -23,16 +23,17 @@ import Footer from "@components/Footer.astro";
         <p class="start">a <span>nieta</span></p>
         <p class="end">entre risas</p>
         <p class="center">y café</p>
-        <p class="end">de <span>Turrialba</span></p>
+        <p class="end">una <span>joya local</span></p>
     </History>
     <Footer />
 </Layout>
 
 <style>
     p:is(.start, .center, .end) {
-        color: var(--neutral-50);
+        color: var(--secondary-500);
         font-size: 128px;
         line-height: 1.25;
+        font-weight: 400;
     }
 
     p.start {
