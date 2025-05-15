@@ -1,0 +1,24 @@
+---
+
+---
+
+<section>
+    <div>
+        <slot />
+    </div>
+</section>
+
+<style>
+    section {
+        min-height: 100dvh;
+        background-color: var(--neutral-900);
+        display: grid;
+        place-items: center;
+    }
+
+    section > div {
+        width: min(var(--max-width), 100%);
+        display: flex;
+        flex-direction: column;
+    }
+</style>

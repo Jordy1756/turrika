@@ -1,0 +1,92 @@
+---
+import IngredientsCard from "@components/IngredientsCard.astro";
+---
+
+<section>
+    <header>
+        <span>Ingredientes</span>
+        <div>
+            <h2>Ingredientes</h2>
+            <p>La simplicidad de tres elementos que crean una experiencia sensorial única</p>
+        </div>
+    </header>
+    <div>
+        <IngredientsCard
+            index={1}
+            name="Queso sin sal"
+            quantity="½ kilo"
+            description="Base fundamental que aporta cremosidad."
+        />
+        <IngredientsCard
+            index={2}
+            name="Dulce o miel"
+            quantity="½ tapa o 1 taza"
+            description="Dulzor esencial para el balance perfecto."
+        />
+        <IngredientsCard index={3} name="Canela" quantity="Al gusto" description="Opcional, añade aroma y carácter." />
+    </div>
+    <footer>
+        <p>Ingredientes tradicionales • Sabor auténtico</p>
+    </footer>
+</section>
+
+<style>
+    section {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    section > header {
+        width: 100%;
+        position: relative;
+        height: 334px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section > header > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 300px;
+        color: var(--neutral-200);
+        z-index: -1;
+    }
+
+    section > header > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 128px;
+        width: min(var(--max-width), 100%);
+    }
+
+    section > header > div > h2 {
+        font-size: 64px;
+    }
+
+    section > header > div > p {
+        max-width: 40ch;
+    }
+
+    section > div {
+        width: min(var(--max-width), 100%);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 5rem;
+    }
+
+    section > footer > p {
+        max-width: 100%;
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,75 @@
+---
+import NewsletterForm from "@components/NewsletterForm.astro";
+---
+
+<section>
+    <video width="100%" height="100dvh" preload="metadata" loop autoplay>
+        <source src="/public/7186177_Nut_Nuts_1280x720.mp4" />
+    </video>
+    <div>
+        <h3>Queso</h3>
+        <h2>Chicharrones</h2>
+        <NewsletterForm />
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        min-height: 100dvh;
+        z-index: 1;
+        padding: 1rem;
+    }
+
+    section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    section > video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    section > div {
+        width: min(var(--max-width), 100%);
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(2, 1fr) auto;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". cheese . . . . . ."
+            ". cheese . . form form form ."
+            "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
+        gap: 1rem;
+        z-index: 1;
+        place-items: center;
+    }
+
+    section > div > h2 {
+        color: var(--neutral-50);
+        font-size: 150px;
+        text-align: center;
+        grid-area: pork-rinds;
+    }
+
+    section > div > h3 {
+        writing-mode: sideways-lr;
+        text-orientation: mixed;
+        color: var(--primary-500);
+        font-size: 128px;
+        grid-area: cheese;
+    }
+</style>

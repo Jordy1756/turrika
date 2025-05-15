@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Hero from "@sections/Hero.astro";
+import History from "@sections/History.astro";
+import Ingredients from "@sections/Ingredients.astro";
+import Footer from "@components/Footer.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Turríka">
+    <Header />
+    <Hero />
+    <History>
+        <p class="start"><span>Dulce</span> y <span>queso</span></p>
+        <p class="center">se <span>unieron</span></p>
+        <p class="end">junto al fuego</p>
+        <p class="start">en manos</p>
+        <p class="end">una <span>joya local</span></p>
+    </History>
+    <Ingredients />
+    <History>
+        <p class="center">Pasó de <span>abuela</span></p>
+        <p class="start">a <span>nieta</span></p>
+        <p class="end">entre risas</p>
+        <p class="center">y café</p>
+        <p class="end">de <span>Turrialba</span></p>
+    </History>
+    <Footer />
 </Layout>
+
+<style>
+    p:is(.start, .center, .end) {
+        color: var(--neutral-50);
+        font-size: 128px;
+        line-height: 1.25;
+    }
+
+    p.start {
+        text-align: start;
+    }
+
+    p.center {
+        text-align: center;
+    }
+
+    p.end {
+        text-align: end;
+    }
+
+    p:is(.start, .center, .end) > span {
+        color: var(--primary-500);
+        font-size: 128px;
+    }
+</style>

@@ -1,0 +1,80 @@
+---
+type Props = {
+    label?: string;
+    type: "email";
+    placeholder: string;
+};
+
+const { label, type, placeholder } = Astro.props;
+---
+
+<div>
+    <fieldset>
+        {label && <legend>{label}</legend>}
+        <input type={type} placeholder={placeholder} />
+    </fieldset>
+    <p></p>
+</div>
+
+<style>
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    div > fieldset {
+        width: 100%;
+        position: relative;
+    }
+
+    div > fieldset > :is(input, textarea, select) {
+        padding: 16px 10px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--neutral-400);
+        background-color: var(--neutral-50);
+        border-radius: var(--border-radius-out);
+    }
+
+    div > fieldset > :is(input, textarea, select):placeholder-shown {
+        text-transform: uppercase;
+    }
+
+    div > fieldset > textarea {
+        resize: none;
+        min-height: 150px;
+        max-height: 250px;
+        field-sizing: content;
+    }
+
+    div > fieldset > legend {
+        padding: 5px 10px;
+        position: absolute;
+        top: 12.5px;
+        left: 0;
+        width: 100%;
+        color: var(--neutral-600);
+        background-color: var(--neutral-50);
+        pointer-events: none;
+        border-top-left-radius: var(--border-radius-out);
+        border-top-right-radius: var(--border-radius-out);
+        transition:
+            top 0.3s ease-in-out,
+            font-size 0.3s ease-in-out;
+    }
+
+    div > fieldset > :is(input, textarea, select, select-multiple):focus + legend,
+    div > fieldset > :is(input, textarea, select, select-multiple):not(:placeholder-shown) + legend {
+        top: -1px;
+        font-size: 0.8rem;
+    }
+
+    div > p {
+        color: var(--error-500);
+        font-size: 0.8rem;
+        padding-inline: 5px;
+        display: none;
+    }
+</style>
