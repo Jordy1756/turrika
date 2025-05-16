@@ -1,8 +1,12 @@
 ---
+type Props = {
+    className?: "slide__in-down";
+};
 
+const { className } = Astro.props;
 ---
 
-<header>
+<header class={className}>
     <nav></nav>
     <div>
         <button>
@@ -24,13 +28,18 @@
         z-index: 999;
     }
 
+    header.slide__in-down {
+        animation: slideInDown 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
     header > div {
-        width: min(var(--max-width), 100%);
-        padding: 1rem;
         display: flex;
         align-items: center;
         justify-content: end;
         gap: 1rem;
+        width: 100%;
+        padding: 1rem;
     }
 
     header > div > button {
@@ -60,6 +69,17 @@
     header > div > h1 {
         color: var(--neutral-50);
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 64px;
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 </style>

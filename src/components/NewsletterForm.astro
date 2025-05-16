@@ -2,9 +2,15 @@
 import Input from "@components/Input.astro";
 import Button from "@components/Button.astro";
 import NewsLetterIcon from "@icons/NewsLetterIcon.astro";
+
+type Props = {
+    className?: "slide__in-left";
+};
+
+const { className } = Astro.props;
 ---
 
-<section>
+<section class={className}>
     <h4>Suscríbete para recibir recetas semanalmente</h4>
     <div>
         <form action="">
@@ -31,6 +37,11 @@ import NewsLetterIcon from "@icons/NewsLetterIcon.astro";
         align-self: flex-end;
     }
 
+    section.slide__in-left {
+        animation: slideInLeft 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
     section > div {
         display: flex;
         flex-direction: column;
@@ -49,5 +60,16 @@ import NewsLetterIcon from "@icons/NewsLetterIcon.astro";
 
     section > div > p > a {
         text-decoration: underline;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 </style>

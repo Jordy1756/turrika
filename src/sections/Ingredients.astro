@@ -67,7 +67,6 @@ import IngredientsCard from "@components/IngredientsCard.astro";
         justify-content: space-between;
         gap: 1rem;
         margin-bottom: 128px;
-        width: min(var(--max-width), 100%);
     }
 
     section > header > div > h2 {
@@ -79,7 +78,8 @@ import IngredientsCard from "@components/IngredientsCard.astro";
     }
 
     section > div {
-        width: min(var(--max-width), 100%);
+        padding: 0rem 2rem;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 5rem;

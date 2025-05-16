@@ -8,22 +8,22 @@ import Footer from "@components/Footer.astro";
 ---
 
 <Layout title="Turríka">
-    <Header />
+    <Header className="slide__in-down" />
     <Hero />
-    <History>
-        <p class="start"><span>Dulce</span> y <span>queso</span></p>
-        <p class="center">se <span>unieron</span></p>
-        <p class="end">junto al fuego</p>
-        <p class="start">en manos</p>
-        <p class="end">de <span>Turrialba</span></p>
+    <History class="prueba">
+        <p class="start animate-me" aria-hidden="true"><span>Dulce</span> y <span>queso</span></p>
+        <p class="center animate-me">se <span>unieron</span></p>
+        <p class="end animate-me" aria-hidden="true">junto al fuego</p>
+        <p class="start animate-me">en manos</p>
+        <p class="end animate-me">de <span>Turrialba</span></p>
     </History>
     <Ingredients />
-    <History>
-        <p class="center">Pasó de <span>abuela</span></p>
-        <p class="start">a <span>nieta</span></p>
-        <p class="end">entre risas</p>
-        <p class="center">y café</p>
-        <p class="end">una <span>joya local</span></p>
+    <History class="prueba">
+        <p class="center animate-me">Pasó de <span>abuela</span></p>
+        <p class="start animate-me">a <span>nieta</span></p>
+        <p class="end animate-me">entre risas</p>
+        <p class="center animate-me">y café</p>
+        <p class="end animate-me">una <span>joya local</span></p>
     </History>
     <Footer />
 </Layout>
@@ -33,7 +33,7 @@ import Footer from "@components/Footer.astro";
         color: var(--secondary-500);
         font-size: 128px;
         line-height: 1.25;
-        font-weight: 400;
+        font-weight: 600;
     }
 
     p.start {
@@ -51,5 +51,22 @@ import Footer from "@components/Footer.astro";
     p:is(.start, .center, .end) > span {
         color: var(--primary-500);
         font-size: 128px;
+    }
+
+    /* .animate-me {
+        color: red;
+        font-size: 25px;
+        box-sizing: border-box;
+        padding: 5%;
+        width: 100%;
+        text-align: left;
+        perspective: 500px;
+    } */
+
+    .animate-me {
+    }
+
+    a {
+        color: var(--color-orangey);
     }
 </style>

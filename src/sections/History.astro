@@ -2,7 +2,7 @@
 
 ---
 
-<section>
+<section class="history">
     <div>
         <slot />
     </div>
@@ -10,6 +10,7 @@
 
 <style>
     section {
+        padding: 1rem;
         min-height: 100dvh;
         background-color: var(--neutral-900);
         display: grid;
@@ -17,8 +18,11 @@
     }
 
     section > div {
-        width: min(var(--max-width), 100%);
+        width: 100%;
         display: flex;
         flex-direction: column;
+        opacity: 0;
     }
 </style>
+
+<script src="../scripts/handleHistory.ts"></script>

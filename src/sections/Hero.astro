@@ -6,18 +6,17 @@ import NewsletterForm from "@components/NewsletterForm.astro";
     <video width="100%" height="100dvh" preload="metadata" loop autoplay>
         <source src="/7186177_Nut_Nuts_1280x720.mp4" />
     </video>
-    <div>
+    <article>
         <h3>Queso</h3>
         <h2>Chicharrones</h2>
-        <NewsletterForm />
-    </div>
+        <NewsletterForm className="slide__in-left" />
+    </article>
 </section>
 
 <style>
     section {
         position: relative;
         display: flex;
-        justify-content: center;
         align-items: end;
         width: 100%;
         min-height: 100dvh;
@@ -42,8 +41,8 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         z-index: -1;
     }
 
-    section > div {
-        width: min(var(--max-width), 100%);
+    section > article {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(2, 1fr) auto;
@@ -58,18 +57,46 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         place-items: center;
     }
 
-    section > div > h2 {
+    section > article > h2 {
         color: var(--neutral-50);
-        font-size: 150px;
+        font-size: 170px;
         text-align: center;
         grid-area: pork-rinds;
+        animation: slideInUp 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
     }
 
-    section > div > h3 {
+    section > article > h3 {
         writing-mode: sideways-lr;
         text-orientation: mixed;
         color: var(--primary-500);
         font-size: 128px;
         grid-area: cheese;
+        animation: slideInRight 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(-700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            transform: translateY(700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 </style>
+
+<script src="../scripts/prueba.ts"></script>
