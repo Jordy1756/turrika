@@ -2,8 +2,8 @@
 import NewsletterForm from "@components/NewsletterForm.astro";
 ---
 
-<section>
-    <video width="100%" height="100dvh" preload="metadata" loop autoplay>
+<section id="hero">
+    <video width="100%" height="100dvh" preload="metadata" loop autoplay muted>
         <source src="/7186177_Nut_Nuts_1280x720.mp4" />
     </video>
     <article>
@@ -11,6 +11,14 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         <h2>Chicharrones</h2>
         <NewsletterForm className="slide__in-left" />
     </article>
+    <div class="corner__decoration-top">
+        <span class="top__left"></span>
+        <span class="top__right"></span>
+    </div>
+    <div class="corner__decoration-bottom">
+        <span class="bottom__left"></span>
+        <span class="bottom__right"></span>
+    </div>
 </section>
 
 <style>
@@ -22,6 +30,7 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         min-height: 100dvh;
         z-index: 1;
         padding: 1rem;
+        overflow: hidden;
     }
 
     section::before {
@@ -42,6 +51,7 @@ import NewsletterForm from "@components/NewsletterForm.astro";
     }
 
     section > article {
+        padding: 1rem;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(8, 1fr);
@@ -59,7 +69,7 @@ import NewsletterForm from "@components/NewsletterForm.astro";
 
     section > article > h2 {
         color: var(--neutral-50);
-        font-size: 170px;
+        font-size: 150px;
         text-align: center;
         grid-area: pork-rinds;
         animation: slideInUp 0.5s ease-in-out;
@@ -70,10 +80,109 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         writing-mode: sideways-lr;
         text-orientation: mixed;
         color: var(--primary-500);
-        font-size: 128px;
+        font-size: 120px;
         grid-area: cheese;
         animation: slideInRight 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
+    }
+
+    .corner__decoration-top,
+    .corner__decoration-bottom {
+        position: absolute;
+        left: 2rem;
+        z-index: 3;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        width: calc(100% - 4rem);
+        height: 150px;
+        pointer-events: none;
+    }
+
+    .corner__decoration-top {
+        top: 2rem;
+    }
+
+    .corner__decoration-bottom {
+        bottom: 2rem;
+    }
+
+    .corner__decoration-top > span,
+    .corner__decoration-bottom > span {
+        height: 100%;
+        aspect-ratio: 1;
+    }
+
+    .top__left {
+        border-top: 1px solid var(--neutral-50);
+        border-left: 1px solid var(--neutral-50);
+        animation: slideInTopLeft 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
+    .top__right {
+        border-top: 1px solid var(--neutral-50);
+        border-right: 1px solid var(--neutral-50);
+        animation: slideInTopRight 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
+    .bottom__left {
+        border-bottom: 1px solid var(--neutral-50);
+        border-left: 1px solid var(--neutral-50);
+        animation: slideInBottomLeft 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
+    .bottom__right {
+        border-bottom: 1px solid var(--neutral-50);
+        border-right: 1px solid var(--neutral-50);
+        animation: slideInBottomRight 0.5s ease-in-out;
+        animation-delay: var(--slide-in-delay);
+    }
+
+    @keyframes slideInTopLeft {
+        from {
+            transform: translate(-100%, -100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInTopRight {
+        from {
+            transform: translate(100%, -100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInBottomLeft {
+        from {
+            transform: translate(-100%, 100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInBottomRight {
+        from {
+            transform: translate(100%, 100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
     }
 
     @keyframes slideInRight {
@@ -99,4 +208,4 @@ import NewsletterForm from "@components/NewsletterForm.astro";
     }
 </style>
 
-<script src="../scripts/prueba.ts"></script>
+<script src="../scripts/handleHero.ts"></script>

@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
@@ -7,9 +9,7 @@ const lenis = new Lenis({
     wheelMultiplier: 1,
 });
 
-const raf = (time: any) => {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-};
+lenis.on("scroll", ScrollTrigger.update);
 
-requestAnimationFrame(raf);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
