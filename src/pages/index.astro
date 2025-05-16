@@ -8,32 +8,124 @@ import Footer from "@components/Footer.astro";
 ---
 
 <Layout title="Turríka">
-    <Header />
+    <!-- Gradient background container -->
+    <div class="gradient-container">
+        <div class="gradient gradient-1"></div>
+        <div class="gradient gradient-2"></div>
+        <div class="gradient gradient-3"></div>
+        <div class="gradient gradient-4"></div>
+        <div class="gradient gradient-5"></div>
+    </div>
+
+    <!-- Page transition overlay -->
+    <div class="page-transition"></div>
+
+    <!-- Content -->
+    <Header className="slide__in-down" />
+
     <Hero />
-    <History>
-        <p class="start"><span>Dulce</span> y <span>queso</span></p>
-        <p class="center">se <span>unieron</span></p>
-        <p class="end">junto al fuego</p>
-        <p class="start">en manos</p>
-        <p class="end">de <span>Turrialba</span></p>
+
+    <History class="history history-first">
+        <p class="start reveal-title"><span>Dulce</span> y <span>queso</span></p>
+        <p class="center reveal-title">se <span>unieron</span></p>
+        <p class="end reveal-title" aria-hidden="true">junto al fuego</p>
+        <p class="start reveal-title">en manos</p>
+        <p class="end reveal-title">de <span>Turrialba</span></p>
     </History>
-    <Ingredients />
-    <History>
-        <p class="center">Pasó de <span>abuela</span></p>
-        <p class="start">a <span>nieta</span></p>
-        <p class="end">entre risas</p>
-        <p class="center">y café</p>
-        <p class="end">una <span>joya local</span></p>
+
+    <Ingredients id="ingredients" />
+
+    <History class="history history-second">
+        <p class="center reveal-title">Pasó de <span>abuela</span></p>
+        <p class="start reveal-title">a <span>nieta</span></p>
+        <p class="end reveal-title">entre risas</p>
+        <p class="center reveal-title">y café</p>
+        <p class="end reveal-title">una <span>joya local</span></p>
     </History>
+
+    <div class="image-parallax">
+        <div class="parallax-content">
+            <h2 class="reveal-title">Tradición y Sabor</h2>
+            <p class="reveal-text">Cada mordisco cuenta una historia de generaciones</p>
+        </div>
+    </div>
+
     <Footer />
 </Layout>
 
 <style>
+    /* Gradient backgrounds */
+    .gradient-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -2;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .gradient {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        mix-blend-mode: overlay;
+    }
+
+    .gradient-1 {
+        width: 80vh;
+        height: 80vh;
+        background: radial-gradient(circle, var(--primary-300), transparent 70%);
+    }
+
+    .gradient-2 {
+        width: 60vh;
+        height: 60vh;
+        background: radial-gradient(circle, var(--primary-500), transparent 70%);
+    }
+
+    .gradient-3 {
+        width: 70vh;
+        height: 70vh;
+        background: radial-gradient(circle, var(--neutral-700), transparent 70%);
+    }
+
+    .gradient-4 {
+        width: 90vh;
+        height: 90vh;
+        background: radial-gradient(circle, var(--primary-600), transparent 70%);
+    }
+
+    .gradient-5 {
+        width: 75vh;
+        height: 75vh;
+        background: radial-gradient(circle, var(--neutral-600), transparent 70%);
+    }
+
+    /* Page transition */
+    .page-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-500);
+        z-index: 9999;
+        pointer-events: none;
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
+
+    /* Text styles */
     p:is(.start, .center, .end) {
-        color: var(--secondary-500);
-        font-size: 128px;
+        color: var(--neutral-50);
+        font-size: clamp(64px, 10vw, 128px);
         line-height: 1.25;
-        font-weight: 400;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(50px);
     }
 
     p.start {
@@ -50,6 +142,60 @@ import Footer from "@components/Footer.astro";
 
     p:is(.start, .center, .end) > span {
         color: var(--primary-500);
-        font-size: 128px;
+        display: inline-block;
+    }
+
+    /* New image parallax section */
+    .image-parallax {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-image: url("/chicharrones-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .image-parallax::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 14, 14, 0.6);
+        z-index: 1;
+    }
+
+    .parallax-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--neutral-50);
+        padding: 0 2rem;
+    }
+
+    .parallax-content h2 {
+        font-size: clamp(48px, 8vw, 96px);
+        margin-bottom: 2rem;
+    }
+
+    .parallax-content p {
+        font-size: clamp(18px, 3vw, 24px);
+        max-width: 40ch;
+        margin: 0 auto;
     }
 </style>
+
+<script>
+    // Import and initialize animations
+    import { initAnimations } from "../utils/animations.ts";
+
+    // Run animations when DOM is loaded
+    document.addEventListener("DOMContentLoaded", () => {
+        initAnimations();
+    });
+</script>
