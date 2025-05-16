@@ -1,9 +1,9 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { initLenis } from "@utils/lenis.ts";
 
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger);
+const { gsap, ScrollTrigger } = initLenis();
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 document.fonts.ready.then(() => {
     gsap.set(".history > div", { opacity: 1 });
@@ -21,7 +21,7 @@ document.fonts.ready.then(() => {
             stagger: 0.1,
             scrollTrigger: {
                 trigger: section,
-                start: "top 70%", 
+                start: "top 70%",
                 end: "bottom 80%",
                 scrub: true,
             },

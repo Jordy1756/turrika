@@ -10,20 +10,36 @@ import Footer from "@components/Footer.astro";
 <Layout title="Turríka">
     <Header className="slide__in-down" />
     <Hero />
-    <History class="prueba">
-        <p class="start animate-me" aria-hidden="true"><span>Dulce</span> y <span>queso</span></p>
-        <p class="center animate-me">se <span>unieron</span></p>
-        <p class="end animate-me" aria-hidden="true">junto al fuego</p>
-        <p class="start animate-me">en manos</p>
-        <p class="end animate-me">de <span>Turrialba</span></p>
+    <History class="history-first">
+        <p class="start animate-me" aria-hidden="true">
+            <span class="word">Dulce</span>
+            <span class="word">y</span>
+            <span class="word">queso</span>
+        </p>
+        <p class="center animate-me"><span class="word">se</span> <span class="word emphasis">unieron</span></p>
+        <p class="end animate-me" aria-hidden="true">
+            <span class="word">junto</span>
+            <span class="word">al</span>
+            <span class="word">fuego</span>
+        </p>
+        <p class="start animate-me"><span class="word">en</span> <span class="word">manos</span></p>
+        <p class="end animate-me"><span class="word">de</span> <span class="word emphasis">Turrialba</span></p>
     </History>
     <Ingredients />
-    <History class="prueba">
-        <p class="center animate-me">Pasó de <span>abuela</span></p>
-        <p class="start animate-me">a <span>nieta</span></p>
-        <p class="end animate-me">entre risas</p>
-        <p class="center animate-me">y café</p>
-        <p class="end animate-me">una <span>joya local</span></p>
+    <History class="history-second">
+        <p class="center animate-me">
+            <span class="word">Pasó</span>
+            <span class="word">de</span>
+            <span class="word emphasis">abuela</span>
+        </p>
+        <p class="start animate-me"><span class="word">a</span> <span class="word emphasis">nieta</span></p>
+        <p class="end animate-me"><span class="word">entre</span> <span class="word">risas</span></p>
+        <p class="center animate-me"><span class="word">y</span> <span class="word">café</span></p>
+        <p class="end animate-me">
+            <span class="word">una</span>
+            <span class="word emphasis">joya</span>
+            <span class="word emphasis">local</span>
+        </p>
     </History>
     <Footer />
 </Layout>
@@ -34,6 +50,8 @@ import Footer from "@components/Footer.astro";
         font-size: 128px;
         line-height: 1.25;
         font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
     }
 
     p.start {
@@ -48,25 +66,41 @@ import Footer from "@components/Footer.astro";
         text-align: end;
     }
 
-    p:is(.start, .center, .end) > span {
+    /* Words in each paragraph */
+    .word {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Highlighted emphasis words */
+    .emphasis {
         color: var(--primary-500);
-        font-size: 128px;
+        position: relative;
     }
 
-    /* .animate-me {
-        color: red;
-        font-size: 25px;
-        box-sizing: border-box;
-        padding: 5%;
+    /* Animation line under emphasis words */
+    .emphasis::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background-color: var(--primary-500);
+        transition: width 0.8s ease;
+    }
+
+    .emphasis.revealed::after {
         width: 100%;
-        text-align: left;
-        perspective: 500px;
-    } */
-
-    .animate-me {
     }
 
-    a {
-        color: var(--color-orangey);
+    /* Improve spacing between animated text elements */
+    .animate-me {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        margin-bottom: 24px;
     }
 </style>
+
+<!-- <script src="../scripts/smoothTransition.ts"></script> -->

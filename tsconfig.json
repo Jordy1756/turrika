@@ -9,7 +9,8 @@
             "@layouts/*": ["src/layouts/*"],
             "@sections/*": ["src/sections/*"],
             "@icons/*": ["src/assets/icons/*"],
-            "@definitions/*": ["src/types/*"]
+            "@definitions/*": ["src/types/*"],
+            "@utils/*": ["src/utils/*"]
         }
     }
 }

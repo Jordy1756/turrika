@@ -11,14 +11,11 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         <h2>Chicharrones</h2>
         <NewsletterForm className="slide__in-left" />
     </article>
-    <div class="corner__decoration-top">
-        <span class="top__left"></span>
-        <span class="top__right"></span>
-    </div>
-    <div class="corner__decoration-bottom">
-        <span class="bottom__left"></span>
-        <span class="bottom__right"></span>
-    </div>
+
+    <div class="corner__decoration top__left"></div>
+    <div class="corner__decoration top__right"></div>
+    <div class="corner__decoration bottom__left"></div>
+    <div class="corner__decoration bottom__right"></div>
 </section>
 
 <style>
@@ -87,59 +84,69 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         animation-delay: var(--slide-in-delay);
     }
 
-    .corner__decoration-top,
-    .corner__decoration-bottom {
+    .corner__decoration {
         position: absolute;
-        left: 2rem;
-        z-index: 3;
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        width: calc(100% - 4rem);
-        height: 150px;
-        pointer-events: none;
-    }
-
-    .corner__decoration-top {
-        top: 2rem;
-    }
-
-    .corner__decoration-bottom {
-        bottom: 2rem;
-    }
-
-    .corner__decoration-top > span,
-    .corner__decoration-bottom > span {
-        height: 100%;
+        width: 150px;
         aspect-ratio: 1;
+        z-index: 3;
     }
 
-    .top__left {
+    .corner__decoration.top__left {
+        left: 2rem;
+        top: 2rem;
         border-top: 1px solid var(--neutral-50);
         border-left: 1px solid var(--neutral-50);
         animation: slideInTopLeft 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
     }
 
-    .top__right {
+    .corner__decoration.top__right {
+        right: 2rem;
+        top: 2rem;
         border-top: 1px solid var(--neutral-50);
         border-right: 1px solid var(--neutral-50);
         animation: slideInTopRight 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
     }
 
-    .bottom__left {
+    .corner__decoration.bottom__left {
+        left: 2rem;
+        bottom: 2rem;
         border-bottom: 1px solid var(--neutral-50);
         border-left: 1px solid var(--neutral-50);
         animation: slideInBottomLeft 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
     }
 
-    .bottom__right {
+    .corner__decoration.bottom__right {
+        right: 2rem;
+        bottom: 2rem;
         border-bottom: 1px solid var(--neutral-50);
         border-right: 1px solid var(--neutral-50);
         animation: slideInBottomRight 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(-700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            transform: translateY(700px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     @keyframes slideInTopLeft {
@@ -182,28 +189,6 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         }
         to {
             transform: translate(0, 0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInRight {
-        from {
-            transform: translateX(-700px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInUp {
-        from {
-            transform: translateY(700px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
             opacity: 1;
         }
     }
