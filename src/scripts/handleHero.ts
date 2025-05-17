@@ -24,7 +24,7 @@ gsap.set(split.words, {
     transform: "translateX(-100%)",
 });
 
-const heroToHistoryTl = gsap.timeline({
+const heroTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: heroSection,
         start: "top top",
@@ -35,7 +35,7 @@ const heroToHistoryTl = gsap.timeline({
     },
 });
 
-heroToHistoryTl
+heroTimeline
     .to(
         header,
         {

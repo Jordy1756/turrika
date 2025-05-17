@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 type Props = {
     index: String;
     image: string;
@@ -20,7 +22,7 @@ const { index, image, name, description, quantity } = Astro.props;
         <section>
             <p>{description}</p>
             <figure>
-                <img src={image} alt="Queso" />
+                <Image src={image} alt="Queso" width={100} height={100} />
             </figure>
         </section>
     </div>
@@ -74,7 +76,6 @@ const { index, image, name, description, quantity } = Astro.props;
     article > div > section > figure > img {
         width: 100%;
         height: 100%;
-        /* background-color: rebeccapurple; */
     }
 
     @keyframes prueba {
