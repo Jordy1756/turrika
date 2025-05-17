@@ -1,5 +1,6 @@
 ---
 import NewsletterForm from "@components/NewsletterForm.astro";
+import HeroIntroduction from "@components/HeroIntroduction.astro";
 ---
 
 <section id="hero">
@@ -11,6 +12,7 @@ import NewsletterForm from "@components/NewsletterForm.astro";
         <h2>Chicharrones</h2>
         <NewsletterForm className="slide__in-left" />
     </article>
+    <HeroIntroduction />
 
     <div class="corner__decoration top__left"></div>
     <div class="corner__decoration top__right"></div>
@@ -19,23 +21,24 @@ import NewsletterForm from "@components/NewsletterForm.astro";
 </section>
 
 <style>
-    section {
-        position: relative;
-        display: flex;
-        align-items: end;
-        width: 100%;
-        min-height: 100dvh;
-        z-index: 1;
-        padding: 1rem;
-        overflow: hidden;
-    }
-
     section::before {
         content: "";
         position: absolute;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1;
+    }
+
+    section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        width: 100%;
+        min-height: 100dvh;
+        z-index: 2;
+        padding: 1rem;
+        overflow: hidden;
     }
 
     section > video {

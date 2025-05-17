@@ -1,0 +1,59 @@
+---
+
+---
+
+<section id="introduction">
+    <div>
+        <p class="start"><span>Dulce</span> y <span>queso</span></p>
+        <p class="center">se <span>unieron</span></p>
+        <p class="end">junto al fuego</p>
+        <p class="start">en manos</p>
+        <p class="end">de <span>Turrialba</span></p>
+    </div>
+</section>
+
+<style>
+    section {
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100dvh;
+        padding: 1rem;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    section > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    section > div > p {
+        color: var(--neutral-50);
+        line-height: 1.25;
+        font-size: 128px;
+        font-weight: 600;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    section > div > p.start {
+        text-align: start;
+    }
+
+    section > div > p.center {
+        text-align: center;
+    }
+
+    section > div > p.end {
+        text-align: end;
+    }
+
+    section > div > p > span {
+        color: var(--primary-300);
+    }
+</style>

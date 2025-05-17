@@ -10,48 +10,23 @@ import Footer from "@components/Footer.astro";
 <Layout title="Turríka">
     <Header className="slide__in-down" />
     <Hero />
-    <History class="history-first">
-        <p class="start animate-me" aria-hidden="true">
-            <span class="word">Dulce</span>
-            <span class="word">y</span>
-            <span class="word">queso</span>
-        </p>
-        <p class="center animate-me"><span class="word">se</span> <span class="word emphasis">unieron</span></p>
-        <p class="end animate-me" aria-hidden="true">
-            <span class="word">junto</span>
-            <span class="word">al</span>
-            <span class="word">fuego</span>
-        </p>
-        <p class="start animate-me"><span class="word">en</span> <span class="word">manos</span></p>
-        <p class="end animate-me"><span class="word">de</span> <span class="word emphasis">Turrialba</span></p>
-    </History>
-    <Ingredients />
-    <History class="history-second">
-        <p class="center animate-me">
-            <span class="word">Pasó</span>
-            <span class="word">de</span>
-            <span class="word emphasis">abuela</span>
-        </p>
-        <p class="start animate-me"><span class="word">a</span> <span class="word emphasis">nieta</span></p>
-        <p class="end animate-me"><span class="word">entre</span> <span class="word">risas</span></p>
-        <p class="center animate-me"><span class="word">y</span> <span class="word">café</span></p>
-        <p class="end animate-me">
-            <span class="word">una</span>
-            <span class="word emphasis">joya</span>
-            <span class="word emphasis">local</span>
-        </p>
-    </History>
+    <Ingredients id="ingredients" />
+    <!-- <History class="history history-second">
+        <p class="center reveal-title">Pasó de <span>abuela</span></p>
+        <p class="start reveal-title">a <span>nieta</span></p>
+        <p class="end reveal-title">entre risas</p>
+        <p class="center reveal-title">y café</p>
+        <p class="end reveal-title">una <span>joya local</span></p>
+    </History> -->
     <Footer />
 </Layout>
 
 <style>
     p:is(.start, .center, .end) {
         color: var(--secondary-500);
-        font-size: 128px;
-        line-height: 1.25;
         font-weight: 600;
-        margin-bottom: 20px;
-        position: relative;
+        white-space: nowrap;
+        opacity: 0;
     }
 
     p.start {
@@ -66,40 +41,7 @@ import Footer from "@components/Footer.astro";
         text-align: end;
     }
 
-    /* Words in each paragraph */
-    .word {
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Highlighted emphasis words */
-    .emphasis {
+    p:is(.start, .center, .end) > span {
         color: var(--primary-500);
-        position: relative;
-    }
-
-    /* Animation line under emphasis words */
-    .emphasis::after {
-        content: "";
-        position: absolute;
-        bottom: 12px;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background-color: var(--primary-500);
-        transition: width 0.8s ease;
-    }
-
-    .emphasis.revealed::after {
-        width: 100%;
-    }
-
-    /* Improve spacing between animated text elements */
-    .animate-me {
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        margin-bottom: 24px;
     }
 </style>
-

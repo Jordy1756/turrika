@@ -1,94 +1,109 @@
 ---
-import IngredientsCard from "@components/IngredientsCard.astro";
+import IngredientCard from "@components/IngredientCard.astro";
 ---
 
-<section>
-    <header>
+<section id="ingredients">
+    <div>
         <span>Ingredientes</span>
-        <div>
+        <article>
             <h2>Ingredientes</h2>
             <p>La simplicidad de tres elementos que crean una experiencia sensorial única</p>
-        </div>
-    </header>
+        </article>
+    </div>
     <div>
-        <IngredientsCard
-            index={1}
+        <IngredientCard
+            index={"1"}
+            image="/queso.png"
             name="Queso sin sal"
-            quantity="½ kilo"
             description="Base fundamental que aporta cremosidad."
+            quantity="½ kilo"
         />
-        <IngredientsCard
-            index={2}
+        <IngredientCard
+            index={"2"}
+            image="/dulce.png"
             name="Dulce o miel"
             quantity="½ tapa o 1 taza"
             description="Dulzor esencial para el balance perfecto."
         />
-        <IngredientsCard index={3} name="Canela" quantity="Al gusto" description="Opcional, añade aroma y carácter." />
+        <IngredientCard
+            index={"3"}
+            image="/canela.png"
+            name=" Canela"
+            quantity="Al gusto"
+            description="Opcional, añade aroma y carácter."
+        />
     </div>
-    <footer>
-        <p>Ingredientes tradicionales • Sabor auténtico</p>
-    </footer>
 </section>
 
 <style>
-    section {
-        padding: 3rem;
-        min-height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        gap: 1rem;
-        background-color: var(--neutral-900);
-        color: var(--neutral-50);
-    }
-
-    section > header {
-        width: 100%;
-        position: relative;
-        height: 334px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    section > header > span {
+    section::before {
+        content: "";
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 300px;
-        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
     }
 
-    section > header > div {
+    section {
+        position: relative;
         width: 100%;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 128px;
-    }
-
-    section > header > div > h2 {
-        font-size: 64px;
-    }
-
-    section > header > div > p {
-        max-width: 40ch;
+        align-items: start;
+        overflow: clip;
+        background: url("/prueba.jpg") no-repeat center/cover fixed;
     }
 
     section > div {
-        padding: 0rem 2rem;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 5rem;
+        flex: 1;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
     }
 
-    section > footer > p {
-        max-width: 100%;
-        text-align: center;
+    section > div:first-child {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 100dvh;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    section > div:last-child {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
+    }
+
+    section > div > span {
+        font-size: 300px;
+        color: var(--neutral-50);
+        position: absolute;
+        top: 32px;
+        left: 50%;
+        transform: translateX(-31%);
+    }
+
+    section > div > article {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    section > div > article > h2 {
+        font-size: 42px;
+        color: var(--primary-300);
+    }
+
+    section > div > article > p {
+        font-size: 16px;
+        color: var(--neutral-50);
+        margin-left: 2rem;
+        max-width: 40ch;
     }
 </style>

@@ -1,0 +1,88 @@
+---
+type Props = {
+    index: String;
+    image: string;
+    name: string;
+    description: string;
+    quantity: string;
+};
+
+const { index, image, name, description, quantity } = Astro.props;
+---
+
+<article>
+    <aside>{index.padStart(2, "0")}</aside>
+    <div>
+        <header>
+            <h3>{name}</h3>
+            <h4>{quantity}</h4>
+        </header>
+        <section>
+            <p>{description}</p>
+            <figure>
+                <img src={image} alt="Queso" />
+            </figure>
+        </section>
+    </div>
+</article>
+
+<style>
+    article {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        padding: 5rem;
+        width: 100%;
+        color: var(--neutral-50);
+    }
+
+    article > aside {
+        padding-block: 1.5rem;
+    }
+
+    article > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    article > div > header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    article > div > header > h3 {
+        font-size: 48px;
+        color: var(--primary-100);
+    }
+
+    article > div > header > h4 {
+        font-size: 28px;
+        font-weight: 500;
+        opacity: 0.9;
+    }
+
+    article > div > section > figure {
+        width: 100%;
+        aspect-ratio: 1;
+        display: flex;
+        animation: prueba 1s ease-in-out infinite alternate;
+    }
+
+    article > div > section > figure > img {
+        width: 100%;
+        height: 100%;
+        /* background-color: rebeccapurple; */
+    }
+
+    @keyframes prueba {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-5px);
+        }
+    }
+</style>
