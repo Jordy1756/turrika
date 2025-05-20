@@ -4,7 +4,11 @@
 
 <section class="history">
     <div>
-        <slot />
+        <p class="center reveal-title">Pasó de <span>abuela</span></p>
+        <p class="start reveal-title">a <span>nieta</span></p>
+        <p class="end reveal-title">entre risas</p>
+        <p class="center reveal-title">y café</p>
+        <p class="end reveal-title">una <span>joya local</span></p>
     </div>
 </section>
 
@@ -12,19 +16,42 @@
     section {
         display: grid;
         place-items: center;
-        position: absolute;
-        top: 0;
-        left: 100%;
         width: 100%;
         padding: 1rem;
         overflow: hidden;
         z-index: 1;
+        background-color: var(--neutral-900);
     }
 
     section > div {
         width: 100%;
         display: flex;
         flex-direction: column;
+    }
+
+    section > div > p {
+        color: var(--neutral-50);
+        line-height: 1.25;
+        font-size: 128px;
+        font-weight: 600;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    section > div > p.start {
+        text-align: start;
+    }
+
+    section > div > p.center {
+        text-align: center;
+    }
+
+    section > div > p.end {
+        text-align: end;
+    }
+
+    section > div > p > span {
+        color: var(--primary-300);
     }
 </style>
 

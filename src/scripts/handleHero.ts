@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 await document.fonts.ready;
 
-const header = document.querySelector("#header");
+const header = document.querySelector("#header") as HTMLElement;
+const nav = header.querySelector("nav") as HTMLElement;
 const heroSection = document.querySelector("#hero") as HTMLElement;
 const heroVideo = heroSection.querySelector("video") as HTMLVideoElement;
 const heroTitle = heroSection.querySelector("h2") as HTMLHeadingElement;
@@ -47,6 +48,14 @@ heroTimeline
         0
     )
     .to(
+        nav,
+        {
+            top: "0",
+            duration: 0.5,
+        },
+        0
+    )
+    .to(
         heroVideo,
         {
             scale: 1.3,
@@ -67,7 +76,6 @@ heroTimeline
     .to(
         heroTitle,
         {
-            // y: "25vh",
             opacity: 0,
             duration: 1,
         },

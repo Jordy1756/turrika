@@ -10,40 +10,11 @@ import Steps from "@sections/Steps.astro";
 
 <Layout title="Turríka">
     <Header className="slide__in-down" />
-    <Hero />
-    <Ingredients />
-    <!-- <History class="history history-second">
-        <p class="center reveal-title">Pasó de <span>abuela</span></p>
-        <p class="start reveal-title">a <span>nieta</span></p>
-        <p class="end reveal-title">entre risas</p>
-        <p class="center reveal-title">y café</p>
-        <p class="end reveal-title">una <span>joya local</span></p>
-    </History> -->
-    <Steps />
+    <main>
+        <Hero />
+        <Ingredients />
+        <Steps />
+        <History />
+    </main>
     <Footer />
 </Layout>
-
-<style>
-    p:is(.start, .center, .end) {
-        color: var(--secondary-500);
-        font-weight: 600;
-        white-space: nowrap;
-        opacity: 0;
-    }
-
-    p.start {
-        text-align: start;
-    }
-
-    p.center {
-        text-align: center;
-    }
-
-    p.end {
-        text-align: end;
-    }
-
-    p:is(.start, .center, .end) > span {
-        color: var(--primary-500);
-    }
-</style>

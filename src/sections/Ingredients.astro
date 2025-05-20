@@ -36,7 +36,7 @@ import IngredientCard from "@components/IngredientCard.astro";
 </section>
 
 <style>
-    section::before {
+    /* section::before {
         content: "";
         position: absolute;
         top: 0;
@@ -45,7 +45,7 @@ import IngredientCard from "@components/IngredientCard.astro";
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1;
-    }
+    } */
 
     section {
         position: relative;
@@ -53,7 +53,8 @@ import IngredientCard from "@components/IngredientCard.astro";
         display: flex;
         align-items: start;
         overflow: clip;
-        background: url("/prueba.jpg") no-repeat center/cover fixed;
+        background-color: var(--neutral-900);
+        /* background: url("/prueba.jpg") no-repeat center/cover fixed; */
     }
 
     section > div {
@@ -81,7 +82,7 @@ import IngredientCard from "@components/IngredientCard.astro";
 
     section > div > span {
         font-size: 300px;
-        color: var(--neutral-50);
+        color: var(--primary-50);
         position: absolute;
         top: 32px;
         left: 50%;
@@ -97,7 +98,7 @@ import IngredientCard from "@components/IngredientCard.astro";
 
     section > div > article > h2 {
         font-size: 42px;
-        color: var(--primary-300);
+        color: var(--primary-200);
     }
 
     section > div > article > p {

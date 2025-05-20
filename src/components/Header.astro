@@ -1,4 +1,6 @@
 ---
+import CloseIcon from "@icons/CloseIcon.astro";
+
 type Props = {
     className?: "slide__in-down";
 };
@@ -7,14 +9,27 @@ const { className } = Astro.props;
 ---
 
 <header id="header" class={className}>
-    <nav></nav>
+    <nav>
+        <div>
+            <button type="button" id="close-navbar-btn">
+                <CloseIcon width={24} height={25} color="var(--neutral-50)" />
+            </button>
+            <h1>Turríka</h1>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#ingredients">Ingredientes</a></li>
+            <li><a href="#steps">Pasos</a></li>
+        </ul>
+    </nav>
     <div>
-        <button>
+        <button type="button" id="open-navbar-btn">
             <span></span>
             <span></span>
         </button>
         <h1>Turríka</h1>
     </div>
+    <div id="overlay" class="overlay"></div>
 </header>
 
 <style>
@@ -31,6 +46,67 @@ const { className } = Astro.props;
     header.slide__in-down {
         animation: slideInDown 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
+    }
+
+    header > nav {
+        padding: 2rem;
+        position: absolute;
+        top: -2rem;
+        right: -100%;
+        height: 100dvh;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(25px);
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 1;
+    }
+
+    header.navbar__open > nav {
+        right: -2rem;
+    }
+
+    header > nav > div {
+        padding-block: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    header > nav > div > button {
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        display: grid;
+        place-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 99999px;
+    }
+
+    header > nav > div > h1 {
+        color: var(--primary-300);
+        font-weight: 700;
+        font-size: 48px;
+    }
+
+    header > nav > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+    header > nav > ul > li {
+        font-size: 64px;
+        color: var(--neutral-50);
+        transition: color 0.3s ease-in-out;
+        font-weight: 500;
+    }
+
+    header > nav > ul > li > a:hover {
+        color: var(--primary-100);
     }
 
     header > div {
@@ -70,7 +146,23 @@ const { className } = Astro.props;
         color: var(--neutral-50);
         font-weight: 700;
         font-size: 64px;
-        mix-blend-mode: difference;
+    }
+
+    header > .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    header.navbar__open > .overlay {
+        opacity: 1;
+        pointer-events: visible;
     }
 
     @keyframes slideInDown {
@@ -84,3 +176,5 @@ const { className } = Astro.props;
         }
     }
 </style>
+
+<script src="../scripts/handleNavbar.ts"></script>

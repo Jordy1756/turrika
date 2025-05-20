@@ -1,0 +1,42 @@
+---
+type Props = {
+    index: string;
+    description: string;
+};
+
+const { index, description } = Astro.props;
+---
+
+<article>
+    <header>
+        <span>{index.padStart(2, "0")}</span>
+    </header>
+    <section>
+        <p>{description}</p>
+    </section>
+</article>
+
+<style>
+    article {
+        padding: 32px;
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        border: 1px solid var(--primary-50);
+    }
+
+    article > header > span {
+        font-size: 64px;
+        font-weight: 700;
+        color: var(--primary-50);
+    }
+
+    article > section > p {
+        font-size: 32px;
+        color: var(--neutral-50);
+        font-weight: 500;
+    }
+</style>
