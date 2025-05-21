@@ -20,9 +20,11 @@ const initApp = async () => {
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    await initHeroAnimation(gsap, SplitText);
+    await document.fonts.ready;
+
+    // initHeroAnimation(gsap, SplitText);
     initStepsAnimation(gsap);
-    await initHistoryAnimation(gsap, SplitText);
+    initHistoryAnimation(gsap, SplitText);
 };
 
-initApp();
+document.addEventListener("DOMContentLoaded", async () => await initApp());

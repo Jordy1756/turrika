@@ -1,6 +1,4 @@
-export const initHeroAnimation = async (gsap: any, SplitText: any) => {
-    await document.fonts.ready;
-
+export const initHeroAnimation = (gsap: any, SplitText: any) => {
     const header = document.querySelector("#header") as HTMLElement;
     const nav = header.querySelector("nav") as HTMLElement;
     const heroSection = document.querySelector("#hero") as HTMLElement;

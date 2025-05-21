@@ -74,14 +74,9 @@ export const initStepsAnimation = (gsap: any) => {
         .to(
             stepsContainer,
             {
-                x: function () {
-                    return -calculateEndPosition();
-                },
+                x: -calculateEndPosition(),
                 duration: 4,
                 ease: "none",
-                onUpdate: function () {
-                    this.vars.x = -calculateEndPosition();
-                },
             },
             7
         );

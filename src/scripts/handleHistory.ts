@@ -1,6 +1,4 @@
-export const initHistoryAnimation = async (gsap: any, SplitText: any) => {
-    await document.fonts.ready;
-
+export const initHistoryAnimation = (gsap: any, SplitText: any) => {
     const historySection = document.querySelector(".history") as HTMLElement;
     const paragraphs = historySection.querySelectorAll("div > p") as NodeListOf<HTMLParagraphElement>;
 
