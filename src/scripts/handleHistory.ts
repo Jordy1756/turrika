@@ -1,50 +1,45 @@
-import { initLenis } from "@utils/lenis.ts";
-import { SplitText } from "gsap/SplitText";
+export const initHistoryAnimation = async (gsap: any, SplitText: any) => {
+    await document.fonts.ready;
 
-const { gsap, ScrollTrigger } = initLenis();
+    const historySection = document.querySelector(".history") as HTMLElement;
+    const paragraphs = historySection.querySelectorAll("div > p") as NodeListOf<HTMLParagraphElement>;
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+    const split = SplitText.create(paragraphs, { type: "words", aria: "hidden" });
 
-await document.fonts.ready;
+    gsap.set(split.words, {
+        opacity: 0,
+        transform: "translateX(-100%)",
+    });
 
-const historySection = document.querySelector(".history") as HTMLElement;
-const paragraphs = historySection.querySelectorAll("div > p") as NodeListOf<HTMLParagraphElement>;
-
-const split = SplitText.create(paragraphs, { type: "words", aria: "hidden" });
-
-gsap.set(split.words, {
-    opacity: 0,
-    transform: "translateX(-100%)",
-});
-
-const histroyTimeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: historySection,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        pin: true,
-        pinSpacing: true,
-    },
-});
-
-histroyTimeline
-    .to(
-        split.words,
-        {
-            transform: "translateX(0)",
-            duration: 2.5,
-            stagger: 0.1,
+    const histroyTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: historySection,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+            pin: true,
+            pinSpacing: true,
         },
-        0
-    )
-    .to(
-        split.words,
-        {
-            opacity: 1,
-            duration: 3,
-            ease: "sine.out",
-            stagger: 0.1,
-        },
-        0
-    );
+    });
+
+    histroyTimeline
+        .to(
+            split.words,
+            {
+                transform: "translateX(0)",
+                duration: 2.5,
+                stagger: 0.1,
+            },
+            0
+        )
+        .to(
+            split.words,
+            {
+                opacity: 1,
+                duration: 3,
+                ease: "sine.out",
+                stagger: 0.1,
+            },
+            0
+        );
+};

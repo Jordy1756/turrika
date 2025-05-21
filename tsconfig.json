@@ -10,7 +10,8 @@
             "@sections/*": ["src/sections/*"],
             "@icons/*": ["src/assets/icons/*"],
             "@definitions/*": ["src/types/*"],
-            "@utils/*": ["src/utils/*"]
+            "@utils/*": ["src/utils/*"],
+            "@scripts/*": ["src/scripts/*"]
         }
     }
 }

@@ -1,0 +1,28 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+import { initHeroAnimation } from "@scripts/handleHero";
+import { initHistoryAnimation } from "@scripts/handleHistory";
+import { initStepsAnimation } from "@scripts/handleSteps";
+
+const initLenis = () => {
+    const lenis = new Lenis();
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+};
+
+const initApp = async () => {
+    initLenis();
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    await initHeroAnimation(gsap, SplitText);
+    initStepsAnimation(gsap);
+    await initHistoryAnimation(gsap, SplitText);
+};
+
+initApp();

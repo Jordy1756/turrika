@@ -1,9 +1,4 @@
-import { initLenis } from "@utils/lenis.ts";
-
-document.addEventListener("astro:page-load", () => {
-    const { gsap, ScrollTrigger } = initLenis();
-    gsap.registerPlugin(ScrollTrigger);
-
+export const initStepsAnimation = (gsap: any) => {
     const stepsSection = document.querySelector("#steps") as HTMLElement;
     const heroTitle = stepsSection.querySelector("h2") as HTMLHeadingElement;
     const stepsContainer = stepsSection.querySelector("div") as HTMLDivElement;
@@ -83,13 +78,11 @@ document.addEventListener("astro:page-load", () => {
                     return -calculateEndPosition();
                 },
                 duration: 4,
-                ease: "none", 
+                ease: "none",
                 onUpdate: function () {
                     this.vars.x = -calculateEndPosition();
                 },
             },
             7
         );
-});
-
-window.addEventListener("load", () => document.dispatchEvent(new Event("astro:page-load")));
+};
