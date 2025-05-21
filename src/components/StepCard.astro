@@ -25,13 +25,20 @@ const { index, description } = Astro.props;
         flex-direction: column;
         justify-content: space-between;
         gap: 2rem;
-        border: 1px solid var(--primary-50);
+        border: 1px solid var(--primary-100);
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius-out);
+        transition: transform 0.3s ease;
+    }
+
+    article:hover {
+        transform: translateY(-5px);
     }
 
     article > header > span {
         font-size: 64px;
         font-weight: 700;
-        color: var(--primary-50);
+        color: var(--primary-300);
     }
 
     article > section > p {
