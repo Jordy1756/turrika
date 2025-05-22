@@ -29,8 +29,8 @@ const initApp = async () => {
     initStepsAnimation(gsap);
     initHistoryAnimation(gsap, SplitText);
 
-    initModal("privacy-policy-modal", ".open__privacy-modal");
-    initModal("terms-and-conditions-modal", ".open__terms-modal");
+    initModal("policy-modal", ".open__privacy-modal");
+    initModal("terms-modal", ".open__terms-modal");
 };
 
 document.addEventListener("DOMContentLoaded", async () => await initApp());

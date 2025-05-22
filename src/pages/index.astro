@@ -18,7 +18,8 @@ import Modal from "@components/Modal.astro";
         <History />
     </main>
     <Footer />
-    <Modal id="privacy-policy-modal" title="Política de Privacidad">
+
+    <Modal id="policy-modal" title="Política de Privacidad">
         <p>
             Solo se recolectan los datos necesarios como correo electrónico mediante formularios voluntarios. Esta
             información se usa para enviar recetas, novedades u ofertas relacionadas con el sitio y sus aliados.
@@ -29,7 +30,7 @@ import Modal from "@components/Modal.astro";
             consentimiento.
         </p>
     </Modal>
-    <Modal id="terms-and-conditions-modal" title="Términos y Condiciones">
+    <Modal id="terms-modal" title="Términos y Condiciones">
         <p>
             Al usar este sitio web, aceptas que estás de acuerdo con los términos aquí descritos. El sitio tiene como
             fin difundir recetas tradicionales de Turrialba y conectar a los usuarios con productos locales por medio de
@@ -41,6 +42,7 @@ import Modal from "@components/Modal.astro";
             no somos responsables de sus políticas o contenido.
         </p>
     </Modal>
+
     <script src="../scripts/main.ts"></script>
 </Layout>
 
