@@ -20,8 +20,8 @@ const { className } = Astro.props;
             </Button>
         </form>
         <p>
-            Al suscribirte, aceptas nuestra <a href="#">Política de Privacidad</a> y das tu consentimiento para recibir actualizaciones
-            de nuestra empresa.
+            Al suscribirte, aceptas nuestra <button class="open__privacy-modal">Política de Privacidad</button> y das tu
+            consentimiento para recibir actualizaciones de nuestra empresa.
         </p>
     </div>
 </section>
@@ -58,8 +58,13 @@ const { className } = Astro.props;
         font-size: 0.6rem;
     }
 
-    section > div > p > a {
+    section > div > p > button {
         text-decoration: underline;
+        text-transform: uppercase;
+        border: none;
+        background-color: transparent;
+        color: var(--neutral-50);
+        font-weight: 400;
     }
 
     @keyframes slideInLeft {

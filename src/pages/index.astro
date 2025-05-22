@@ -6,6 +6,7 @@ import History from "@sections/History.astro";
 import Ingredients from "@sections/Ingredients.astro";
 import Footer from "@components/Footer.astro";
 import Steps from "@sections/Steps.astro";
+import Modal from "@components/Modal.astro";
 ---
 
 <Layout title="Turríka">
@@ -17,6 +18,29 @@ import Steps from "@sections/Steps.astro";
         <History />
     </main>
     <Footer />
+    <Modal id="privacy-policy-modal" title="Política de Privacidad">
+        <p>
+            Solo se recolectan los datos necesarios como correo electrónico mediante formularios voluntarios. Esta
+            información se usa para enviar recetas, novedades u ofertas relacionadas con el sitio y sus aliados.
+        </p>
+        <p>
+            Los datos se almacenan de forma segura y no se comparten con terceros. El usuario puede solicitar eliminar
+            su información o darse de baja en cualquier momento. No usamos cookies para rastrear datos personales sin
+            consentimiento.
+        </p>
+    </Modal>
+    <Modal id="terms-and-conditions-modal" title="Términos y Condiciones">
+        <p>
+            Al usar este sitio web, aceptas que estás de acuerdo con los términos aquí descritos. El sitio tiene como
+            fin difundir recetas tradicionales de Turrialba y conectar a los usuarios con productos locales por medio de
+            contenido audiovisual y formularios de suscripción.
+        </p>
+        <p>
+            El uso del contenido es personal. No se permite copiar, distribuir o modificar con fines comerciales sin
+            autorización. Enlaces a sitios externos como Don Pepe y elguche.com son proporcionados como referencia, pero
+            no somos responsables de sus políticas o contenido.
+        </p>
+    </Modal>
     <script src="../scripts/main.ts"></script>
 </Layout>
 

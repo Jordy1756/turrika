@@ -1,5 +1,4 @@
 ---
-import Modal from "@components/Modal.astro";
 
 type Props = {
     title: string;
@@ -19,7 +18,6 @@ const { title } = Astro.props;
     <body>
         <div class="root">
             <slot />
-            <Modal id="prueba" />
         </div>
     </body>
 </html>
