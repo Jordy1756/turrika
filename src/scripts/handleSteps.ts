@@ -15,11 +15,7 @@ export const initStepsAnimation = (gsap: any) => {
         transform: "translateX(100%)",
     });
 
-    const calculateEndPosition = () => {
-        const containerWidth = stepsContainer.offsetWidth;
-        const sectionWidth = stepsSection.offsetWidth;
-        return containerWidth - sectionWidth + 32;
-    };
+    const calculateEndPosition = () => stepsContainer.offsetWidth - stepsSection.offsetWidth + 32;
 
     const stepsTimeline = gsap.timeline({
         scrollTrigger: {
@@ -74,7 +70,7 @@ export const initStepsAnimation = (gsap: any) => {
         .to(
             stepsContainer,
             {
-                x: -calculateEndPosition(),
+                x: () => -calculateEndPosition(),
                 duration: 4,
                 ease: "none",
             },

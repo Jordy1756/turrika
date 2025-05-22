@@ -6,6 +6,7 @@ import "lenis/dist/lenis.css";
 import { initHeroAnimation } from "@scripts/handleHero";
 import { initHistoryAnimation } from "@scripts/handleHistory";
 import { initStepsAnimation } from "@scripts/handleSteps";
+import { initHeader } from "./handleHeader";
 
 const initLenis = () => {
     const lenis = new Lenis();
@@ -22,7 +23,8 @@ const initApp = async () => {
 
     await document.fonts.ready;
 
-    // initHeroAnimation(gsap, SplitText);
+    initHeader();
+    initHeroAnimation(gsap, SplitText);
     initStepsAnimation(gsap);
     initHistoryAnimation(gsap, SplitText);
 };
