@@ -3,12 +3,12 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
     const nav = header.querySelector("nav") as HTMLElement;
     const heroSection = document.querySelector("#hero") as HTMLElement;
     const heroVideo = heroSection.querySelector("video") as HTMLVideoElement;
-    const heroTitle = heroSection.querySelector("h2") as HTMLHeadingElement;
-    const heroSubtitle = heroSection.querySelector("h3") as HTMLHeadingElement;
+    const heroTitle = heroSection.querySelector("#hero-title-pork-rinds") as HTMLHeadingElement;
+    const heroSubtitle = heroSection.querySelector("#hero-title-cheese") as HTMLHeadingElement;
     const corners = heroSection.querySelectorAll(".corner__decoration") as NodeListOf<HTMLElement>;
     const newsletterForm = heroSection.querySelector(".slide__in-left") as HTMLElement;
     const heroIntroduction = heroSection.querySelector("#introduction") as HTMLElement;
-    const paragraphs = heroIntroduction.querySelectorAll("div > p");
+    const paragraphs = heroIntroduction.querySelectorAll("div > p") as NodeListOf<HTMLParagraphElement>;
 
     const split = SplitText.create(paragraphs, { type: "words", aria: "hidden" });
 

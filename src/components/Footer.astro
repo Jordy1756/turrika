@@ -26,10 +26,10 @@ import NewsletterForm from "./NewsletterForm.astro";
                     <h3>Legal</h3>
                     <ul>
                         <li>
-                            <a href="#privacy">Política de privacidad</a>
+                            <button type="button" class="open__privacy-modal">Política de privacidad</button>
                         </li>
                         <li>
-                            <a href="#terms">Términos y condiciones</a>
+                            <button type="button" class="open__terms-modal">Términos y condiciones</button>
                         </li>
                     </ul>
                 </div>
@@ -117,6 +117,13 @@ import NewsletterForm from "./NewsletterForm.astro";
 
     .main > div > nav > div > ul {
         gap: 1rem;
+    }
+
+    .main > div > nav > div > ul > li > button {
+        background-color: transparent;
+        border: none;
+        color: var(--neutral-50);
+        text-transform: uppercase;
     }
 
     footer > div {

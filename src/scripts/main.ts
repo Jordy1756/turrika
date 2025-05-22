@@ -7,6 +7,7 @@ import { initHeroAnimation } from "@scripts/handleHero";
 import { initHistoryAnimation } from "@scripts/handleHistory";
 import { initStepsAnimation } from "@scripts/handleSteps";
 import { initHeader } from "./handleHeader";
+import { initModal } from "./handleModal";
 
 const initLenis = () => {
     const lenis = new Lenis();
@@ -27,6 +28,8 @@ const initApp = async () => {
     initHeroAnimation(gsap, SplitText);
     initStepsAnimation(gsap);
     initHistoryAnimation(gsap, SplitText);
+
+    initModal("prueba", ".open__privacy-modal");
 };
 
 document.addEventListener("DOMContentLoaded", async () => await initApp());

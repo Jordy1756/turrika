@@ -8,8 +8,8 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         <source src="/intro.mp4" />
     </video>
     <article>
-        <h3>Queso</h3>
-        <h2>Chicharrones</h2>
+        <h2 id="hero-title-cheese" class="hero__title-cheese">Queso</h2>
+        <h2 id="hero-title-pork-rinds" class="hero__title-pork-rinds">Chicharrones</h2>
         <NewsletterForm className="slide__in-left" />
     </article>
     <HeroIntroduction />
@@ -67,7 +67,7 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         place-items: center;
     }
 
-    section > article > h2 {
+    section > article > .hero__title-pork-rinds {
         color: var(--neutral-50);
         font-size: 150px;
         text-align: center;
@@ -77,7 +77,7 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         z-index: 2;
     }
 
-    section > article > h3 {
+    section > article > .hero__title-cheese {
         writing-mode: sideways-lr;
         text-orientation: mixed;
         color: var(--primary-500);
