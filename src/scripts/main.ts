@@ -27,8 +27,8 @@ const initApp = async () => {
 
     // initHeader();
     // initHeroAnimation(gsap, SplitText);
-    initStepsAnimation(gsap);
-    // initHistoryAnimation(gsap, SplitText);
+    // initStepsAnimation(gsap);
+    initHistoryAnimation(gsap, SplitText);
     // initFooterAnimation(gsap, ScrollTrigger);
 
     initModal("policy-modal", ".open__privacy-modal");

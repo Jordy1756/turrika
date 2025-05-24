@@ -35,7 +35,8 @@
     section > div > p {
         color: var(--neutral-50);
         line-height: 1.25;
-        font-size: var(--text-size-4);
+        font-size: var(--text-hero-medium);
+
         font-weight: 600;
         position: relative;
         white-space: nowrap;
@@ -55,5 +56,15 @@
 
     section > div > p > span {
         color: var(--primary-300);
+    }
+
+    @media screen and (width <= 480px) {
+        section > div {
+            gap: 0.5rem;
+        }
+
+        section > div > p {
+            font-size: var(--text-display-small);
+        }
     }
 </style>
