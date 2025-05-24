@@ -12,7 +12,7 @@ const { className } = Astro.props;
     <nav>
         <div>
             <button type="button" id="close-navbar-btn">
-                <CloseIcon width={24} height={25} color="var(--neutral-50)" />
+                <CloseIcon width={24} height={24} color="var(--neutral-50)" />
             </button>
             <h1>Turríka</h1>
         </div>
@@ -22,12 +22,14 @@ const { className } = Astro.props;
             <li><a href="#steps">Pasos</a></li>
         </ul>
     </nav>
-    <div>
+    <div id="header-controls">
         <button type="button" id="open-navbar-btn">
             <span></span>
             <span></span>
         </button>
-        <h1>Turríka</h1>
+        <h1>
+            <a href="#">Turríka</a>
+        </h1>
     </div>
     <div id="overlay" class="overlay"></div>
 </header>
@@ -35,9 +37,9 @@ const { className } = Astro.props;
 <style>
     header {
         position: fixed;
-        top: 2rem;
-        left: 2rem;
-        width: calc(100% - 4rem);
+        top: 0;
+        left: 0;
+        width: 100%;
         display: flex;
         justify-content: center;
         z-index: 999;
@@ -51,24 +53,25 @@ const { className } = Astro.props;
     header > nav {
         padding: 2rem;
         position: absolute;
-        top: -2rem;
+        top: 0;
         right: -100%;
-        height: 100dvh;
-        background-color: rgba(0, 0, 0, 0.5);
+        min-height: 100dvh;
+        background-color: rgba(0, 0, 0, 1);
         backdrop-filter: blur(25px);
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         gap: 3rem;
         transition: right 0.3s ease-in-out;
         z-index: 1;
+        display: none;
     }
 
     header.navbar__open > nav {
-        right: -2rem;
+        right: 0;
     }
 
     header > nav > div {
-        padding-block: 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -89,17 +92,18 @@ const { className } = Astro.props;
     header > nav > div > h1 {
         color: var(--primary-300);
         font-weight: 700;
-        font-size: 48px;
+        font-size: 40px;
     }
 
     header > nav > ul {
+        width: 500px;
         display: flex;
         flex-direction: column;
-        gap: 5rem;
+        gap: 2rem;
     }
 
     header > nav > ul > li {
-        font-size: 64px;
+        font-size: 32px;
         color: var(--neutral-50);
         transition: color 0.3s ease-in-out;
         font-weight: 500;
@@ -115,7 +119,7 @@ const { className } = Astro.props;
         justify-content: end;
         gap: 1rem;
         width: 100%;
-        padding: 1rem;
+        padding: 3rem;
     }
 
     header > div > button {

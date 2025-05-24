@@ -8,6 +8,7 @@ import { initHistoryAnimation } from "@scripts/handleHistory";
 import { initStepsAnimation } from "@scripts/handleSteps";
 import { initHeader } from "./handleHeader";
 import { initModal } from "./handleModal";
+import { initFooterAnimation } from "./handleFooter";
 
 const initLenis = () => {
     const lenis = new Lenis();
@@ -24,10 +25,11 @@ const initApp = async () => {
 
     await document.fonts.ready;
 
-    initHeader();
-    initHeroAnimation(gsap, SplitText);
+    // initHeader();
+    // initHeroAnimation(gsap, SplitText);
     initStepsAnimation(gsap);
-    initHistoryAnimation(gsap, SplitText);
+    // initHistoryAnimation(gsap, SplitText);
+    // initFooterAnimation(gsap, ScrollTrigger);
 
     initModal("policy-modal", ".open__privacy-modal");
     initModal("terms-modal", ".open__terms-modal");

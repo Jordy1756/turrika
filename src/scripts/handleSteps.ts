@@ -32,7 +32,7 @@ export const initStepsAnimation = (gsap: any) => {
         .to(
             heroTitle,
             {
-                fontSize: "128px",
+                fontSize: "8rem",
                 duration: 2,
                 ease: "power2.out",
             },

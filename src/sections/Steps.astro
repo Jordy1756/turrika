@@ -20,7 +20,7 @@ import StepCard from "@components/StepCard.astro";
         position: relative;
         padding: 1rem;
         display: flex;
-        align-items: end;
+        align-items: center;
         gap: 2rem;
         min-height: 100vh;
         overflow: clip;
@@ -33,7 +33,7 @@ import StepCard from "@components/StepCard.astro";
         left: 50%;
         transform: translate(-50%, -50%);
         color: var(--primary-100);
-        font-size: 250px;
+        font-size: var(--text-hero-extra-large);
         text-align: center;
         max-width: 6ch;
         z-index: 1;
@@ -44,5 +44,12 @@ import StepCard from "@components/StepCard.astro";
         display: flex;
         gap: 9.375rem;
         z-index: 2;
+    }
+
+    @media screen and (width <= 600px) {
+        section > div {
+            width: calc((100dvw - 2rem) * 7 + 4rem * 7);
+            gap: 4rem;
+        }
     }
 </style>

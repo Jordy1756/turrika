@@ -20,7 +20,7 @@ const { index, description } = Astro.props;
     article {
         padding: 32px;
         width: 500px;
-        height: 500px;
+        aspect-ratio: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -36,14 +36,20 @@ const { index, description } = Astro.props;
     }
 
     article > header > span {
-        font-size: 64px;
+        font-size: var(--text-display-large);
         font-weight: 700;
         color: var(--primary-300);
     }
 
     article > section > p {
-        font-size: 32px;
+        font-size: var(--text-heading-large);
         color: var(--neutral-50);
         font-weight: 500;
+    }
+
+    @media screen and (width <= 600px) {
+        article {
+            width: calc(100dvw - 2rem);
+        }
     }
 </style>

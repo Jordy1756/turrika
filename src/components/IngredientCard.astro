@@ -30,12 +30,11 @@ const { index, image, name, description, quantity } = Astro.props;
 
 <style>
     article {
-        position: relative;
         display: flex;
-        justify-content: center;
         gap: 5rem;
         padding: 5rem;
         width: 100%;
+        min-height: 100dvh;
         color: var(--neutral-50);
     }
 
@@ -56,21 +55,32 @@ const { index, image, name, description, quantity } = Astro.props;
     }
 
     article > div > header > h3 {
-        font-size: 48px;
+        font-size: var(--text-display-medium);
         color: var(--primary-100);
     }
 
     article > div > header > h4 {
-        font-size: 28px;
-        font-weight: 500;
+        font-size: var(--text-heading-medium);
+        font-weight: 400;
         opacity: 0.9;
     }
 
+    article > div > section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    article > div > section > p {
+        font-size: var(--text-body-large);
+    }
+
     article > div > section > figure {
+        max-width: 600px;
         width: 100%;
         aspect-ratio: 1;
         display: flex;
-        animation: prueba 1s ease-in-out infinite alternate;
+        animation: moveDown 1s ease-in-out infinite alternate;
     }
 
     article > div > section > figure > img {
@@ -78,7 +88,24 @@ const { index, image, name, description, quantity } = Astro.props;
         height: 100%;
     }
 
-    @keyframes prueba {
+    @media screen and (width <= 1200px) {
+        article {
+            padding: 5rem 1rem;
+            gap: 1rem;
+        }
+
+        article > aside {
+            padding-block: 1rem;
+        }
+    }
+
+    @media screen and (width < 480px) {
+        article > aside {
+            padding-block: 0.5rem;
+        }
+    }
+
+    @keyframes moveDown {
         from {
             transform: translateY(0);
         }

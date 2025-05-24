@@ -1,10 +1,9 @@
 export const initHeroAnimation = (gsap: any, SplitText: any) => {
-    const header = document.querySelector("#header") as HTMLElement;
-    const nav = header.querySelector("nav") as HTMLElement;
+    const headerControls = document.querySelector("#header-controls") as HTMLDivElement;
     const heroSection = document.querySelector("#hero") as HTMLElement;
     const heroVideo = heroSection.querySelector("video") as HTMLVideoElement;
-    const heroTitle = heroSection.querySelector("#hero-title-pork-rinds") as HTMLHeadingElement;
-    const heroSubtitle = heroSection.querySelector("#hero-title-cheese") as HTMLHeadingElement;
+    const porkRindsTitle = heroSection.querySelector("#hero-title-pork-rinds") as HTMLHeadingElement;
+    const cheeseTitle = heroSection.querySelector("#hero-title-cheese") as HTMLHeadingElement;
     const corners = heroSection.querySelectorAll(".corner__decoration") as NodeListOf<HTMLElement>;
     const newsletterForm = heroSection.querySelector(".slide__in-left") as HTMLElement;
     const heroIntroduction = heroSection.querySelector("#introduction") as HTMLElement;
@@ -30,20 +29,11 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
 
     heroTimeline
         .to(
-            header,
+            headerControls,
             {
-                top: "0",
-                left: "1rem",
-                width: "calc(100% - 2rem)",
+                padding: "1rem",
                 duration: 0.5,
-            },
-            0
-        )
-        .to(
-            nav,
-            {
-                top: "0",
-                duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
@@ -53,32 +43,36 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
                 scale: 1.3,
                 filter: "blur(10px)",
                 duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
         .to(
-            heroTitle,
+            porkRindsTitle,
             {
                 scale: 200,
-                duration: 3,
                 transform: "translate(-550%, 1500%)",
+                duration: 3,
+                ease: "sine.out",
             },
             0
         )
         .to(
-            heroTitle,
+            porkRindsTitle,
             {
                 opacity: 0,
-                duration: 1,
+                duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
         .to(
-            heroSubtitle,
+            cheeseTitle,
             {
                 x: "-100%",
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
@@ -87,7 +81,8 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
             {
                 x: "100%",
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
@@ -96,7 +91,8 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
             {
                 scale: 5,
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.5,
+                ease: "sine.out",
             },
             0
         )
@@ -106,6 +102,7 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
                 opacity: 1,
                 left: "0%",
                 duration: 3,
+                ease: "sine.out",
             },
             0
         )
@@ -115,6 +112,7 @@ export const initHeroAnimation = (gsap: any, SplitText: any) => {
                 transform: "translateX(0)",
                 duration: 2.5,
                 stagger: 0.1,
+                ease: "sine.out",
             },
             0
         )

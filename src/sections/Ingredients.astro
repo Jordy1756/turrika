@@ -36,54 +36,39 @@ import IngredientCard from "@components/IngredientCard.astro";
 </section>
 
 <style>
-    /* section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    } */
-
     section {
         position: relative;
         width: 100%;
         display: flex;
-        align-items: start;
         overflow: clip;
         background-color: var(--neutral-900);
-        z-index: 2;
-
-        /* background: url("/prueba.jpg") no-repeat center/cover fixed; */
     }
 
     section > div {
-        flex: 1;
-        z-index: 2;
         display: flex;
         flex-direction: column;
+        flex: 1;
     }
 
     section > div:first-child {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        height: 100dvh;
         position: sticky;
         top: 0;
         left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 1rem;
+        height: 100dvh;
     }
 
     section > div:last-child {
         background-color: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(15px);
+        /* background-color: rebeccapurple; */
     }
 
     section > div > span {
-        font-size: 300px;
+        font-size: var(--text-hero-giant);
         color: var(--primary-50);
         position: absolute;
         top: 32px;
@@ -98,15 +83,43 @@ import IngredientCard from "@components/IngredientCard.astro";
         gap: 1rem;
     }
 
+    section > div > article > h2::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5%;
+        height: 2px;
+        background-color: var(--primary-200);
+    }
+
     section > div > article > h2 {
-        font-size: 42px;
+        position: relative;
+        font-size: var(--text-display-small);
         color: var(--primary-200);
     }
 
     section > div > article > p {
-        font-size: 16px;
+        font-size: var(--text-body-base);
         color: var(--neutral-50);
-        margin-left: 2rem;
+        margin-left: 32px;
         max-width: 40ch;
+    }
+
+    @media screen and (width <= 1200px) {
+        section > div > article {
+            padding: 0;
+        }
+    }
+
+    @media screen and (width <= 768px) {
+        section > div:first-child {
+            position: fixed;
+            width: 100%;
+        }
+
+        section > div:last-child {
+            backdrop-filter: blur(15px);
+        }
     }
 </style>
