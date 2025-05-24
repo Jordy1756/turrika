@@ -34,7 +34,6 @@ const { className } = Astro.props;
         max-width: 400px;
         color: var(--neutral-50);
         grid-area: form;
-        align-self: flex-end;
     }
 
     section.slide__in-left {
@@ -48,6 +47,10 @@ const { className } = Astro.props;
         gap: 0.5rem;
     }
 
+    section > h4 {
+        font-size: clamp(14px, 0.6vw + 0.5rem, 24px);
+    }
+
     section > div > form {
         display: flex;
         align-items: center;
@@ -55,7 +58,7 @@ const { className } = Astro.props;
     }
 
     section > div > p {
-        font-size: 0.6rem;
+        font-size: var(--text-body-extra-small);
     }
 
     section > div > p > button {
