@@ -8,7 +8,6 @@ export const initFooterAnimation = (gsap: any, ScrollTrigger: any) => {
         left: 0,
         width: "100%",
         zIndex: 5,
-        // display: "none",
     });
 
     ScrollTrigger.create({

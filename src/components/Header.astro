@@ -99,11 +99,10 @@ const { className } = Astro.props;
         flex-direction: column;
     }
 
-    header > nav > ul > li {
+    header > nav > ul > li > a {
         font-size: var(--text-display-medium);
-        color: var(--neutral-50);
-        transition: color 0.3s ease-in-out;
         font-weight: 500;
+        transition: color 0.3s ease-in-out;
     }
 
     header > nav > ul > li > a:hover {
@@ -144,7 +143,6 @@ const { className } = Astro.props;
     }
 
     header > div > h1 {
-        color: var(--neutral-50);
         font-weight: 500;
         font-size: var(--text-display-extra-small);
     }
