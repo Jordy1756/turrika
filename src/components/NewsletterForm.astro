@@ -70,6 +70,12 @@ const { className } = Astro.props;
         font-weight: 400;
     }
 
+    @media screen and (width <= 580px) {
+        section {
+            margin-top: auto;
+        }
+    }
+
     @keyframes slideInLeft {
         from {
             transform: translateX(700px);

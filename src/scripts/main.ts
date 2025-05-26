@@ -25,10 +25,10 @@ const initApp = async () => {
 
     await document.fonts.ready;
 
-    // initHeader();
-    // initHeroAnimation(gsap, SplitText);
+    initHeader();
+    initHeroAnimation(gsap, SplitText);
     // initStepsAnimation(gsap);
-    initHistoryAnimation(gsap, SplitText);
+    // initHistoryAnimation(gsap, SplitText);
     // initFooterAnimation(gsap, ScrollTrigger);
 
     initModal("policy-modal", ".open__privacy-modal");

@@ -35,10 +35,10 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         flex-direction: column;
         justify-content: end;
         width: 100%;
-        min-height: 100dvh;
-        z-index: 2;
+        height: 100dvh;
         padding: 1rem;
         overflow: hidden;
+        z-index: 2;
     }
 
     section > video {
@@ -63,14 +63,13 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
             ". cheese . . form form form ."
             "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
         gap: 1rem;
-        z-index: 1;
         place-items: center;
-        background-color: red;
+        z-index: 1;
     }
 
     section > article > .hero__title-pork-rinds {
         color: var(--neutral-50);
-        font-size: var(--text-size-3);
+        font-size: var(--text-hero-large);
         text-align: center;
         grid-area: pork-rinds;
         animation: slideInUp 0.5s ease-in-out;
@@ -82,7 +81,7 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         writing-mode: sideways-lr;
         text-orientation: mixed;
         color: var(--primary-500);
-        font-size: var(--text-size-5);
+        font-size: var(--text-hero-small);
         grid-area: cheese;
         animation: slideInRight 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
@@ -130,6 +129,90 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         border-right: 1px solid var(--neutral-50);
         animation: slideInBottomRight 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
+    }
+
+    @media screen and (width <= 1024px) {
+        section > article > .hero__title-pork-rinds {
+            font-size: var(--text-hero-medium);
+        }
+
+        .corner__decoration {
+            width: 75px;
+        }
+    }
+
+    @media screen and (width <= 768px) {
+        section > article {
+            grid-template-areas:
+                ". cheese . . . . . ."
+                ". cheese . form form form form ."
+                "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
+        }
+
+        section > article > .hero__title-pork-rinds {
+            font-size: var(--text-hero-small);
+        }
+
+        section > article > .hero__title-cheese {
+            font-size: var(--text-display-medium);
+        }
+
+        .corner__decoration.top__left {
+            left: 1rem;
+            top: 1rem;
+        }
+
+        .corner__decoration.top__right {
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .corner__decoration.bottom__left {
+            left: 1rem;
+            bottom: 1rem;
+        }
+
+        .corner__decoration.bottom__right {
+            right: 1rem;
+            bottom: 1rem;
+        }
+    }
+
+    @media screen and (width <= 580px) {
+        section > article {
+            grid-template-rows: repeat(3, 1fr) auto;
+            grid-template-areas:
+                "pork-rinds . . . . . . ."
+                "pork-rinds . . . . . . ."
+                "pork-rinds form form form form form form form"
+                "pork-rinds cheese cheese cheese cheese cheese cheese cheese";
+            place-items: start;
+        }
+
+        section > article > .hero__title-pork-rinds {
+            writing-mode: sideways-lr;
+            text-orientation: mixed;
+            font-size: var(--text-hero-large);
+            margin-top: auto;
+        }
+
+        section > article > .hero__title-cheese {
+            writing-mode: horizontal-tb;
+            font-size: var(--text-hero-extra-large);
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    @media screen and (width <= 480px) {
+        section > article > .hero__title-pork-rinds {
+            font-size: var(--text-hero-medium);
+        }
+
+        section > article > .hero__title-cheese {
+            writing-mode: horizontal-tb;
+            font-size: clamp(30px, 8vw + 1rem, 60px);
+            margin-top: auto;
+        }
     }
 
     @keyframes slideInRight {
