@@ -114,12 +114,12 @@ import IngredientCard from "@components/IngredientCard.astro";
 
     @media screen and (width <= 768px) {
         section > div:first-child {
-            position: fixed;
-            width: 100%;
+            display: none;
         }
 
         section > div:last-child {
-            backdrop-filter: blur(15px);
+            backdrop-filter: none;
+            background-color: var(--neutral-900);
         }
     }
 </style>
