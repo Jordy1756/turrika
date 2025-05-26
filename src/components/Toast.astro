@@ -4,8 +4,7 @@ import CloseIconSmall from "@icons/CloseIconSmall.astro";
 ---
 
 <div class="toast">
-    <aside>
-    </aside>
+    <aside></aside>
     <div class="main__content">
         <header>
             <h6></h6>
@@ -30,7 +29,7 @@ import CloseIconSmall from "@icons/CloseIconSmall.astro";
         right: calc(-100% - 1rem);
         display: flex;
         gap: 0.5rem;
-        width: min(382px, 100%);
+        width: min(382px, calc(100% - 2rem));
         padding: 1rem;
         border-radius: var(--border-radius-out);
         background-color: var(--neutral-50);
@@ -63,7 +62,7 @@ import CloseIconSmall from "@icons/CloseIconSmall.astro";
     }
 
     .toast > .main__content > header > h6 {
-        font-size: var(--text-size-base);
+        font-size: var(--text-body-large);
     }
 
     .toast > .main__content > header > button {
@@ -75,13 +74,13 @@ import CloseIconSmall from "@icons/CloseIconSmall.astro";
     }
 
     .toast > .main__content > main > p {
-        font-size: 0.9rem;
+        font-size: var(--text-body-extra-small);
         opacity: 0.75;
         font-weight: 300;
     }
 
     .toast > .main__content > footer > p {
-        font-size: 0.8rem;
+        font-size: var(--text-body-extra-small);
         opacity: 0.75;
         font-weight: 200;
     }
