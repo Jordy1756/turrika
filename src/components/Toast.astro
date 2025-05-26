@@ -1,0 +1,117 @@
+---
+import { getFormattedDateString, TIME_12_FORMAT } from "@utils/handleDates";
+import CloseIconSmall from "@icons/CloseIconSmall.astro";
+---
+
+<div class="toast">
+    <aside>
+    </aside>
+    <div class="main__content">
+        <header>
+            <h6></h6>
+            <button type="button">
+                <CloseIconSmall width={24} height={24} color="var(--neutral-900)" />
+            </button>
+        </header>
+        <section>
+            <p></p>
+        </section>
+        <footer>
+            <p>{getFormattedDateString(new Date(), TIME_12_FORMAT)}</p>
+        </footer>
+    </div>
+    <div class="progress__bar"></div>
+</div>
+
+<style>
+    .toast {
+        position: fixed;
+        bottom: 1rem;
+        right: calc(-100% - 1rem);
+        display: flex;
+        gap: 0.5rem;
+        width: min(382px, 100%);
+        padding: 1rem;
+        border-radius: var(--border-radius-out);
+        background-color: var(--neutral-50);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .toast.active {
+        right: 1rem;
+    }
+
+    .toast > .main__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .toast > .main__content > header {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .toast > .main__content > header > picture {
+        display: flex;
+    }
+
+    .toast > .main__content > header > h6 {
+        font-size: var(--text-size-base);
+    }
+
+    .toast > .main__content > header > button {
+        border-radius: var(--border-radius-out);
+        text-align: center;
+        line-height: 1.475;
+        border: none;
+        background-color: transparent;
+    }
+
+    .toast > .main__content > main > p {
+        font-size: 0.9rem;
+        opacity: 0.75;
+        font-weight: 300;
+    }
+
+    .toast > .main__content > footer > p {
+        font-size: 0.8rem;
+        opacity: 0.75;
+        font-weight: 200;
+    }
+
+    .toast > .progress__bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background-color: var(--success-500);
+    }
+
+    .toast.active > .progress__bar {
+        animation: shrink 7.5s linear forwards;
+    }
+
+    .toast__success .progress__bar {
+        background-color: var(--success-500);
+    }
+
+    .toast__error .progress__bar {
+        background-color: var(--error-500);
+    }
+
+    @keyframes shrink {
+        from {
+            width: 100%;
+        }
+        to {
+            width: 0%;
+        }
+    }
+</style>

@@ -9,6 +9,8 @@ import { initStepsAnimation } from "@scripts/handleSteps";
 import { initHeader } from "./handleHeader";
 import { initModal } from "./handleModal";
 import { initFooterAnimation } from "./handleFooter";
+import { initNewsletterForm } from "./handleNewsletterForm";
+import { initToast } from "./handleToast";
 
 const initLenis = () => {
     const lenis = new Lenis();
@@ -25,12 +27,13 @@ const initApp = async () => {
 
     await document.fonts.ready;
 
+    const { showToast } = initToast();
     initHeader();
+    initNewsletterForm(showToast);
     initHeroAnimation(gsap, SplitText);
-    // initStepsAnimation(gsap);
-    // initHistoryAnimation(gsap, SplitText);
-    // initFooterAnimation(gsap, ScrollTrigger);
-
+    initStepsAnimation(gsap);
+    initHistoryAnimation(gsap, SplitText);
+    initFooterAnimation(gsap, ScrollTrigger);
     initModal("policy-modal", ".open__privacy-modal");
     initModal("terms-modal", ".open__terms-modal");
 };

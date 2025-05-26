@@ -7,19 +7,20 @@ import Ingredients from "@sections/Ingredients.astro";
 import Footer from "@components/Footer.astro";
 import Steps from "@sections/Steps.astro";
 import Modal from "@components/Modal.astro";
+import Toast from "@components/Toast.astro";
 ---
 
 <Layout title="Turríka">
     <Header className="slide__in-down" />
     <main>
         <Hero />
-        <!-- <Ingredients /> -->
-        <!-- <Steps /> -->
-        <!-- <History /> -->
+        <Ingredients />
+        <Steps />
+        <History />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
 
-    <!-- <Modal id="policy-modal" title="Política de Privacidad">
+    <Modal id="policy-modal" title="Política de Privacidad">
         <p>
             Solo se recolectan los datos necesarios como correo electrónico mediante formularios voluntarios. Esta
             información se usa para enviar recetas, novedades u ofertas relacionadas con el sitio y sus aliados.
@@ -41,7 +42,8 @@ import Modal from "@components/Modal.astro";
             autorización. Enlaces a sitios externos como Don Pepe y elguche.com son proporcionados como referencia, pero
             no somos responsables de sus políticas o contenido.
         </p>
-    </Modal> -->
+    </Modal>
+    <Toast />
 
     <script src="../scripts/main.ts"></script>
 </Layout>

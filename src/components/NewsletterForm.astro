@@ -13,8 +13,8 @@ const { className } = Astro.props;
 <section class={className}>
     <h4>Suscríbete para recibir recetas semanalmente</h4>
     <div>
-        <form action="">
-            <Input type="email" placeholder="Escribe tu email" />
+        <form class="newsletter__form">
+            <Input type="email" name="email" placeholder="Escribe tu email" />
             <Button type="submit" className="primary">
                 <NewsLetterIcon width={24} height={24} color="var(--neutral-50)" />
             </Button>
