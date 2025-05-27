@@ -8,7 +8,7 @@ import { initHistoryAnimation } from "@scripts/handleHistory";
 import { initStepsAnimation } from "@scripts/handleSteps";
 import { initHeader } from "./handleHeader";
 import { initModal } from "./handleModal";
-import { initFooterAnimation } from "./handleFooter";
+// import { initFooterAnimation } from "./handleFooter";
 import { initNewsletterForm } from "./handleNewsletterForm";
 import { initToast } from "./handleToast";
 
@@ -33,7 +33,7 @@ const initApp = async () => {
     initHeroAnimation(gsap, SplitText);
     initStepsAnimation(gsap);
     initHistoryAnimation(gsap, SplitText);
-    initFooterAnimation(gsap, ScrollTrigger);
+    // initFooterAnimation(gsap, ScrollTrigger);
     initModal("policy-modal", ".open__privacy-modal");
     initModal("terms-modal", ".open__terms-modal");
 };

@@ -3,6 +3,7 @@ import GithubIcon from "@icons/GithubIcon.astro";
 import LinkedInIcon from "@icons/LinkedInIcon.astro";
 import ResumeIcon from "@icons/ResumeIcon.astro";
 import NewsletterForm from "./NewsletterForm.astro";
+import SocialIcon from "@icons/SocialIcon.astro";
 ---
 
 <footer>
@@ -42,17 +43,32 @@ import NewsletterForm from "./NewsletterForm.astro";
         <nav>
             <ul>
                 <li>
-                    <a href="">
+                    <a href="https://elguche.com/" target="_blank">
+                        <SocialIcon src="/guche.webp" alt="Logo de la red social del guche" width={20} height={20} />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.donpeperestaurant.net/" target="_blank">
+                        <SocialIcon
+                            src="/don_pepe.webp"
+                            alt="Logo de la red social de Don Pepe"
+                            width={20}
+                            height={20}
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/yordicastro" target="_blank">
                         <LinkedInIcon width={24} height={24} color="var(--neutral-50)" />
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <ResumeIcon width={24} height={24} color="var(--neutral-50)" />
+                    <a href="https://jordy756-minimalist-portfolio.vercel.app/" target="_blank">
+                        <ResumeIcon width={20} height={20} color="var(--neutral-50)" />
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="https://github.com/Jordy1756" target="_blank">
                         <GithubIcon width={24} height={24} color="var(--neutral-50)" />
                     </a>
                 </li>
@@ -101,7 +117,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 
     .main > div > nav {
         display: flex;
-        gap: 2rem;
+        gap: 5rem;
     }
 
     .main > div > nav > div,
@@ -115,7 +131,7 @@ import NewsletterForm from "./NewsletterForm.astro";
     }
 
     .main > div > nav > div > ul {
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     .main > div > nav > div > ul > li > button {
@@ -123,6 +139,8 @@ import NewsletterForm from "./NewsletterForm.astro";
         border: none;
         text-transform: uppercase;
         text-align: start;
+        color: var(--neutral-50);
+        font-weight: 300;
     }
 
     footer > div {
@@ -144,6 +162,15 @@ import NewsletterForm from "./NewsletterForm.astro";
         gap: 1rem;
     }
 
+    .social > nav > ul > li {
+        display: flex;
+    }
+
+    .social > nav > ul > li > a {
+        display: flex;
+        align-items: center;
+    }
+
     aside {
         position: absolute;
         top: 50%;
@@ -157,7 +184,7 @@ import NewsletterForm from "./NewsletterForm.astro";
         font-size: 31.25rem;
     }
 
-    @media screen and (width <= 864px) {
+    @media screen and (width <= 922px) {
         footer {
             padding: 1rem;
             gap: 4rem;
@@ -165,7 +192,6 @@ import NewsletterForm from "./NewsletterForm.astro";
 
         .main > h2 {
             font-size: var(--text-hero-large);
-            /* font-size: clamp(50px, 8vw + 1rem, 150px); */
         }
 
         .main > div {
@@ -194,6 +220,7 @@ import NewsletterForm from "./NewsletterForm.astro";
         .main > div > nav {
             width: 100%;
             flex-direction: column;
+            gap: 2rem;
         }
     }
 </style>
