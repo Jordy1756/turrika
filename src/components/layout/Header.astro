@@ -1,40 +1,27 @@
 ---
-import CloseIcon from "@icons/CloseIcon.astro";
-
-type Props = {
-    className?: "slide__in-down";
-};
-
-const { className } = Astro.props;
+import CloseIcon from "@components/icons/Close.astro";
 ---
 
-<header id="header" class={className}>
+<header id="header">
     <nav>
         <div>
             <button type="button" id="close-navbar-btn">
-                <CloseIcon width={24} height={24} color="var(--neutral-50)" />
+                <CloseIcon width={24} />
             </button>
             <h1>Turríka</h1>
         </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#ingredients">Ingredientes</a></li>
-            <li><a href="#steps">Pasos</a></li>
-        </ul>
+        <dialog>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#ingredients">Ingredientes</a></li>
+                <li><a href="#steps">Pasos</a></li>
+            </ul>
+        </dialog>
     </nav>
-    <div id="header-controls">
-        <button type="button" id="open-navbar-btn">
-            <span></span>
-            <span></span>
-        </button>
-        <h1>
-            <a href="#">Turríka</a>
-        </h1>
-    </div>
-    <div id="overlay" class="overlay"></div>
 </header>
+<div id="overlay" class="overlay"></div>
 
-<style>
+<!-- <style>
     header {
         position: fixed;
         top: 0;
@@ -42,12 +29,10 @@ const { className } = Astro.props;
         display: flex;
         justify-content: center;
         width: 100%;
-        z-index: 999;
-    }
-
-    header.slide__in-down {
         animation: slideInDown 0.5s ease-in-out;
         animation-delay: var(--slide-in-delay);
+        z-index: 999;
+        background-color: red;
     }
 
     header > nav {
@@ -209,4 +194,6 @@ const { className } = Astro.props;
             opacity: 1;
         }
     }
-</style>
+</style> -->
+
+<style></style>

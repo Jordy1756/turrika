@@ -1,26 +1,26 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
 import Hero from "@sections/Hero.astro";
-import History from "@sections/History.astro";
-import Ingredients from "@sections/Ingredients.astro";
-import Footer from "@components/Footer.astro";
-import Steps from "@sections/Steps.astro";
-import Modal from "@components/Modal.astro";
-import Toast from "@components/Toast.astro";
+// import History from "@sections/History.astro";
+// import Ingredients from "@sections/Ingredients.astro";
+// import Steps from "@sections/Steps.astro";
+// import Modal from "@components/Modal.astro";
+// import Toast from "@components/Toast.astro";
 ---
 
 <Layout title="Turríka">
     <Header className="slide__in-down" />
     <main>
         <Hero />
-        <Ingredients />
+        <!-- <Ingredients />
         <Steps />
-        <History />
+        <History /> -->
     </main>
-    <Footer />
+    <!-- <Footer /> -->
 
-    <Modal id="policy-modal" title="Política de Privacidad">
+    <!-- <Modal id="policy-modal" title="Política de Privacidad">
         <p>
             Solo se recolectan los datos necesarios como correo electrónico mediante formularios voluntarios. Esta
             información se usa para enviar recetas, novedades u ofertas relacionadas con el sitio y sus aliados.
@@ -43,9 +43,9 @@ import Toast from "@components/Toast.astro";
             no somos responsables de sus políticas o contenido.
         </p>
     </Modal>
-    <Toast />
+    <Toast /> -->
 
-    <script src="../scripts/main.ts"></script>
+    <!-- <script src="../scripts/main.ts"></script> -->
 </Layout>
 
 <style>

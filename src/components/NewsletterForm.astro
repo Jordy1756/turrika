@@ -1,27 +1,27 @@
 ---
-import Input from "@components/Input.astro";
-import Button from "@components/Button.astro";
-import NewsLetterIcon from "@icons/NewsLetterIcon.astro";
+import ArrowIcon from "@components/icons/Arrow.astro";
+import Input from "@components/ui/Input.astro";
+import Button from "@components/ui/Button.astro";
 
-type Props = {
+interface Props {
     className?: "slide__in-left";
-};
+}
 
 const { className } = Astro.props;
 ---
 
 <section class={className}>
-    <h4>Suscríbete para recibir recetas semanalmente</h4>
+    <h4>Suscríbete</h4>
     <div>
         <form class="newsletter__form">
-            <Input type="email" name="email" placeholder="Escribe tu email" />
-            <Button type="submit" className="primary">
-                <NewsLetterIcon width={24} height={24} color="var(--neutral-50)" />
+            <Input id="email" label="Email" type="email" name="email" placeholder="Escribe tu email" />
+            <Button>
+                <ArrowIcon width={20} />
             </Button>
         </form>
         <p>
-            Al suscribirte, aceptas nuestra <button class="open__privacy-modal">Política de Privacidad</button> y das tu
-            consentimiento para recibir actualizaciones de nuestra empresa.
+            Al suscribirte, aceptas nuestra <button class="open__privacy-modal">política de privacidad</button> y das tu consentimiento
+            para recibir actualizaciones de nuestra empresa.
         </p>
     </div>
 </section>
@@ -52,8 +52,6 @@ const { className } = Astro.props;
 
     section > div > form {
         display: flex;
-        align-items: center;
-        gap: 1rem;
     }
 
     section > div > p {
@@ -62,7 +60,6 @@ const { className } = Astro.props;
 
     section > div > p > button {
         text-decoration: underline;
-        text-transform: uppercase;
         border: none;
         background-color: transparent;
         color: var(--neutral-50);

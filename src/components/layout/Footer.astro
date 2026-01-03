@@ -1,16 +1,15 @@
 ---
-import GithubIcon from "@icons/GithubIcon.astro";
-import LinkedInIcon from "@icons/LinkedInIcon.astro";
-import ResumeIcon from "@icons/ResumeIcon.astro";
-import NewsletterForm from "./NewsletterForm.astro";
-import SocialIcon from "@icons/SocialIcon.astro";
+import GithubIcon from "@components/icons/Github.astro";
+import LinkedInIcon from "@components/icons/LinkedIn.astro";
+import ResumeIcon from "@components/icons/Resume.astro";
+// import NewsletterForm from "./NewsletterForm.astro";
 ---
 
 <footer>
     <section class="main">
         <h2>Turríka</h2>
         <div>
-            <NewsletterForm />
+            <!-- <NewsletterForm /> -->
             <nav>
                 <div>
                     <h3>Receta</h3>
@@ -42,21 +41,6 @@ import SocialIcon from "@icons/SocialIcon.astro";
         <span>© 2025 Turríka. Todos los derechos reservados.</span>
         <nav>
             <ul>
-                <li>
-                    <a href="https://elguche.com/" target="_blank">
-                        <SocialIcon src="/guche.webp" alt="Logo de la red social del guche" width={20} height={20} />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.donpeperestaurant.net/" target="_blank">
-                        <SocialIcon
-                            src="/don_pepe.webp"
-                            alt="Logo de la red social de Don Pepe"
-                            width={20}
-                            height={20}
-                        />
-                    </a>
-                </li>
                 <li>
                     <a href="https://linkedin.com/in/yordicastro" target="_blank">
                         <LinkedInIcon width={24} height={24} color="var(--neutral-50)" />
