@@ -136,10 +136,13 @@ const { title } = Astro.props;
         --box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
         --box-shadow-hover: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
 
+        --dialog-background-color: rgba(0, 0, 0, 0.75);
+        --dialog-blur: blur(25px);
+
         --border-radius-out: 5px;
         --border-radius-in: 2.5px;
 
-        --slide-in-delay: 1s;
+        --slide-in-delay: 0.5s;
         --max-width: 1544px;
     }
 
@@ -263,5 +266,6 @@ const { title } = Astro.props;
 
     .root {
         position: relative;
+        overflow: hidden;
     }
 </style>

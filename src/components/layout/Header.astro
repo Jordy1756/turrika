@@ -2,185 +2,144 @@
 import CloseIcon from "@components/icons/Close.astro";
 ---
 
-<header id="header">
+<header>
+    <nav>
+        <button command="show-modal" commandfor="nav-dialog">
+            <span></span>
+            <span></span>
+        </button>
+        <h1>Turríka</h1>
+    </nav>
+</header>
+
+<dialog id="nav-dialog" closedby="any">
     <nav>
         <div>
-            <button type="button" id="close-navbar-btn">
+            <button command="close" commandfor="nav-dialog">
                 <CloseIcon width={24} />
             </button>
             <h1>Turríka</h1>
         </div>
-        <dialog>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#ingredients">Ingredientes</a></li>
-                <li><a href="#steps">Pasos</a></li>
-            </ul>
-        </dialog>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#ingredients">Ingredientes</a></li>
+            <li><a href="#steps">Pasos</a></li>
+        </ul>
     </nav>
-</header>
-<div id="overlay" class="overlay"></div>
+</dialog>
 
-<!-- <style>
+<style>
     header {
         position: fixed;
         top: 0;
         left: 0;
-        display: flex;
-        justify-content: center;
         width: 100%;
-        animation: slideInDown 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
+        padding: 4rem;
+        animation: slideInDown var(--slide-in-delay) ease-in-out;
         z-index: 999;
-        background-color: red;
     }
 
     header > nav {
-        padding: 2rem;
-        position: absolute;
-        top: 0;
-        right: -100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 3rem;
-        min-height: 100dvh;
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(25px);
-        transition: right 0.3s ease-in-out;
-        z-index: 1;
-    }
-
-    header.navbar__open > nav {
-        right: 0;
-    }
-
-    header > nav > div {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         gap: 1rem;
     }
 
-    header > nav > div > button {
-        padding: 0.75rem;
-        aspect-ratio: 1;
-        background-color: transparent;
-        border: none;
-        display: grid;
-        place-items: center;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 99999px;
-    }
-
-    header > nav > div > h1 {
-        color: var(--primary-300);
-        font-weight: 700;
-        font-size: var(--text-display-small);
-    }
-
-    header > nav > ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    header > nav > ul > li > a {
-        font-size: var(--text-display-medium);
-        font-weight: 500;
-        transition: color 0.3s ease-in-out;
-    }
-
-    header > nav > ul > li > a:hover {
-        color: var(--primary-100);
-    }
-
-    header > div {
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        gap: 1rem;
-        width: 100%;
-        padding: 3rem;
-    }
-
-    header > div > button {
+    header > nav > button {
         display: flex;
         flex-direction: column;
         align-items: end;
         justify-content: center;
         gap: 0.5rem;
         width: 55px;
-        background-color: transparent;
-        border: none;
     }
 
-    header > div > button > span {
-        height: 3px;
+    header > nav > button > span {
+        height: 4px;
         background-color: var(--neutral-50);
     }
 
-    header > div > button > span:first-child {
+    header > nav > button > span:first-child {
         width: 66.6%;
     }
 
-    header > div > button > span:last-child {
+    header > nav > button > span:last-child {
         width: 100%;
     }
 
-    header > div > h1 {
-        font-weight: 500;
+    header > nav > h1,
+    dialog > nav > div > h1 {
+        font-weight: 600;
         font-size: var(--text-display-extra-small);
     }
 
-    header > .overlay {
-        position: fixed;
+    dialog {
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.5);
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        left: auto;
+        right: 0;
+        display: flex;
+        min-height: 100dvh;
+        color: var(--neutral-50);
+        background-color: var(--dialog-background-color);
+        backdrop-filter: var(--dialog-blur);
+        transform: translateX(100%);
+        transition:
+            transform 0.5s ease-in-out,
+            display 0.5s ease-in allow-discrete;
     }
 
-    header.navbar__open > .overlay {
-        opacity: 1;
-        pointer-events: visible;
+    dialog[open] {
+        transform: translateX(0);
     }
 
-    @media screen and (width <= 768px) {
-        header > nav {
-            padding: 1rem;
-        }
-
-        header > nav > div > button {
-            padding: 0.5rem;
-        }
-
-        header > div {
-            display: flex;
-            align-items: center;
-            justify-content: end;
-            gap: 1rem;
-            width: 100%;
-            padding: 2rem;
-        }
-
-        header > div > button {
-            width: 40px;
-        }
-
-        header > div > button > span {
-            height: 2px;
-            background-color: var(--neutral-50);
-        }
+    dialog::backdrop {
+        backdrop-filter: blur(4px);
     }
 
-    @media screen and (width <= 480px) {
-        header > nav > div > button {
-            padding: 0;
-            background-color: none;
+    dialog > nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 4rem;
+    }
+
+    dialog > nav > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    dialog > nav > div > button {
+        padding: 12px;
+        display: grid;
+        place-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        aspect-ratio: 1;
+        border-radius: 99999px;
+    }
+
+    dialog > nav > div > h1 {
+        color: var(--primary-300);
+    }
+
+    dialog > nav > ul > li > a {
+        font-size: var(--text-display-medium);
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: color 0.3s ease-in-out;
+    }
+
+    dialog > nav > ul > li > a:hover {
+        color: var(--primary-100);
+    }
+
+    @starting-style {
+        dialog[open] {
+            transform: translateX(100%);
         }
     }
 
@@ -194,6 +153,4 @@ import CloseIcon from "@components/icons/Close.astro";
             opacity: 1;
         }
     }
-</style> -->
-
-<style></style>
+</style>

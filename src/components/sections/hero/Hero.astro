@@ -1,136 +1,81 @@
 ---
-import NewsletterForm from "@components/NewsletterForm.astro";
-import HeroIntroduction from "@components/HeroIntroduction.astro";
+import NewsletterForm from "@components/sections/newsletter/NewsletterForm.astro";
+import Corners from "@components/sections/hero/Corners.astro";
 ---
 
-<section id="hero">
-    <video width="100%" height="100dvh" preload="metadata" loop autoplay muted>
-        <source src="https://res.cloudinary.com/dygwpgeq9/video/upload/v1748324746/intro_dflfq0.mp4" />
+<section id="hero" class="hero">
+    <video autoplay muted loop playsinline aria-hidden="true" tabindex="-1" poster="/hero_img.png">
+        <source src="/video.mp4" />
     </video>
     <article>
         <h2 id="hero-title-cheese" class="hero__title-cheese">Queso</h2>
         <h2 id="hero-title-pork-rinds" class="hero__title-pork-rinds">Chicharrones</h2>
-        <NewsletterForm className="slide__in-left" />
+        <NewsletterForm />
     </article>
-    <HeroIntroduction />
-
-    <div class="corner__decoration top__left"></div>
-    <div class="corner__decoration top__right"></div>
-    <div class="corner__decoration bottom__left"></div>
-    <div class="corner__decoration bottom__right"></div>
+    <Corners />
 </section>
 
 <style>
-    section::before {
+    .hero::before {
         content: "";
         position: absolute;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
-    section {
+    .hero {
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: end;
         width: 100%;
-        height: 100dvh;
-        padding: 1rem;
-        overflow: hidden;
-        z-index: 2;
+        min-height: 100dvh;
+        z-index: 1;
     }
 
-    section > video {
+    .hero > video {
         position: absolute;
         inset: 0;
+        width: 100%;
         height: 100%;
         object-fit: cover;
         z-index: -1;
     }
 
-    section > article {
+    .hero > article {
         align-self: center;
-        padding: 1rem;
-        width: min(var(--max-width), 100%);
         display: grid;
         grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(2, 1fr) auto;
-        grid-auto-columns: 1fr;
-        grid-auto-flow: row;
+        grid-template-rows: repeat(3, auto);
         grid-template-areas:
             ". cheese . . . . . ."
             ". cheese . . form form form ."
             "pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds pork-rinds";
         gap: 1rem;
-        place-items: center;
+        padding: 4rem;
         z-index: 1;
     }
 
-    section > article > .hero__title-pork-rinds {
+    .hero > article > h2 {
+        line-height: 1;
+    }
+
+    .hero > article > .hero__title-pork-rinds {
+        grid-area: pork-rinds;
         font-size: var(--text-hero-large);
         text-align: center;
-        grid-area: pork-rinds;
-        animation: slideInUp 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-        z-index: 2;
+        animation: slideInUp var(--slide-in-delay) ease-in-out;
     }
 
-    section > article > .hero__title-cheese {
-        writing-mode: sideways-lr;
-        text-orientation: mixed;
-        color: var(--primary-500);
-        font-size: var(--text-hero-small);
+    .hero > article > .hero__title-cheese {
         grid-area: cheese;
-        animation: slideInRight 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-        align-self: end;
+        writing-mode: sideways-lr;
+        color: var(--primary-400);
+        font-size: var(--text-hero-small);
+        animation: slideInRight var(--slide-in-delay) ease-in-out;
     }
 
-    .corner__decoration {
-        position: absolute;
-        width: 150px;
-        aspect-ratio: 1;
-        z-index: 3;
-    }
-
-    .corner__decoration.top__left {
-        left: 2rem;
-        top: 2rem;
-        border-top: 1px solid var(--neutral-50);
-        border-left: 1px solid var(--neutral-50);
-        animation: slideInTopLeft 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-    }
-
-    .corner__decoration.top__right {
-        right: 2rem;
-        top: 2rem;
-        border-top: 1px solid var(--neutral-50);
-        border-right: 1px solid var(--neutral-50);
-        animation: slideInTopRight 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-    }
-
-    .corner__decoration.bottom__left {
-        left: 2rem;
-        bottom: 2rem;
-        border-bottom: 1px solid var(--neutral-50);
-        border-left: 1px solid var(--neutral-50);
-        animation: slideInBottomLeft 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-    }
-
-    .corner__decoration.bottom__right {
-        right: 2rem;
-        bottom: 2rem;
-        border-bottom: 1px solid var(--neutral-50);
-        border-right: 1px solid var(--neutral-50);
-        animation: slideInBottomRight 0.5s ease-in-out;
-        animation-delay: var(--slide-in-delay);
-    }
-
-    @media screen and (width <= 1024px) {
+    /* @media screen and (width <= 1024px) {
         section > article > .hero__title-pork-rinds {
             font-size: var(--text-hero-medium);
         }
@@ -212,7 +157,7 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
             font-size: clamp(30px, 8vw + 1rem, 60px);
             margin-top: auto;
         }
-    }
+    } */
 
     @keyframes slideInRight {
         from {
@@ -232,50 +177,6 @@ import HeroIntroduction from "@components/HeroIntroduction.astro";
         }
         to {
             transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInTopLeft {
-        from {
-            transform: translate(-100%, -100%);
-            opacity: 0;
-        }
-        to {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInTopRight {
-        from {
-            transform: translate(100%, -100%);
-            opacity: 0;
-        }
-        to {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInBottomLeft {
-        from {
-            transform: translate(-100%, 100%);
-            opacity: 0;
-        }
-        to {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideInBottomRight {
-        from {
-            transform: translate(100%, 100%);
-            opacity: 0;
-        }
-        to {
-            transform: translate(0, 0);
             opacity: 1;
         }
     }

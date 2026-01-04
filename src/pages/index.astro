@@ -1,26 +1,31 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Modal from "@components/ui/Modal.astro";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
-import Hero from "@sections/Hero.astro";
+import Hero from "@components/sections/hero/Hero.astro";
 // import History from "@sections/History.astro";
-// import Ingredients from "@sections/Ingredients.astro";
+import Ingredients from "@components/sections/ingredients/Ingredients.astro";
+// import Introduction from "@components/sections/introduction/Introduction.astro";
 // import Steps from "@sections/Steps.astro";
-// import Modal from "@components/Modal.astro";
 // import Toast from "@components/Toast.astro";
 ---
 
 <Layout title="Turríka">
-    <Header className="slide__in-down" />
+    <Header />
     <main>
         <Hero />
-        <!-- <Ingredients />
+        <!-- <Introduction /> -->
+        <!-- <Ingredients /> -->
+        <!--  -->
+
+        <!--  -->
+        <!-- 
         <Steps />
         <History /> -->
     </main>
     <!-- <Footer /> -->
-
-    <!-- <Modal id="policy-modal" title="Política de Privacidad">
+    <Modal id="policy-modal" title="Política de Privacidad">
         <p>
             Solo se recolectan los datos necesarios como correo electrónico mediante formularios voluntarios. Esta
             información se usa para enviar recetas, novedades u ofertas relacionadas con el sitio y sus aliados.
@@ -31,6 +36,8 @@ import Hero from "@sections/Hero.astro";
             consentimiento.
         </p>
     </Modal>
+
+    <!-- 
     <Modal id="terms-modal" title="Términos y Condiciones">
         <p>
             Al usar este sitio web, aceptas que estás de acuerdo con los términos aquí descritos. El sitio tiene como
@@ -53,5 +60,9 @@ import Hero from "@sections/Hero.astro";
         background: url(https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323456/background_sc0nte.webp) no-repeat
             center/cover fixed;
         min-height: 100dvh;
+    }
+
+    p {
+        font-family: var(--manrope-font);
     }
 </style>
