@@ -1,79 +1,79 @@
-export const initStepsAnimation = (gsap: any) => {
-    const stepsSection = document.querySelector("#steps") as HTMLElement;
-    const heroTitle = stepsSection.querySelector("h2") as HTMLHeadingElement;
-    const stepsContainer = stepsSection.querySelector("div") as HTMLDivElement;
+// export const initStepsAnimation = (gsap: any) => {
+//     const stepsSection = document.querySelector("#steps") as HTMLElement;
+//     const heroTitle = stepsSection.querySelector("h2") as HTMLHeadingElement;
+//     const stepsContainer = stepsSection.querySelector("div") as HTMLDivElement;
 
-    gsap.set(stepsSection, {
-        backgroundColor: "var(--neutral-900)",
-    });
+//     gsap.set(stepsSection, {
+//         backgroundColor: "var(--neutral-900)",
+//     });
 
-    gsap.set(heroTitle, {
-        fontSize: "0px",
-    });
+//     gsap.set(heroTitle, {
+//         fontSize: "0px",
+//     });
 
-    gsap.set(stepsContainer, {
-        transform: "translateX(100%)",
-    });
+//     gsap.set(stepsContainer, {
+//         transform: "translateX(100%)",
+//     });
 
-    const calculateEndPosition = () => stepsContainer.offsetWidth - stepsSection.offsetWidth + 32;
+//     const calculateEndPosition = () => stepsContainer.offsetWidth - stepsSection.offsetWidth + 32;
 
-    const stepsTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: stepsSection,
-            start: "top top",
-            end: "+=6000",
-            scrub: true,
-            pin: true,
-            pinSpacing: true,
-        },
-    });
+//     const stepsTimeline = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: stepsSection,
+//             start: "top top",
+//             end: "+=6000",
+//             scrub: true,
+//             pin: true,
+//             pinSpacing: true,
+//         },
+//     });
 
-    stepsTimeline
-        .to(
-            heroTitle,
-            {
-                fontSize: "8rem",
-                duration: 2,
-                ease: "power2.out",
-            },
-            0.5
-        )
-        .to(
-            heroTitle,
-            {
-                scale: 200,
-                xPercent: 325,
-                opacity: 0,
-                duration: 2.5,
-                ease: "power2.inOut",
-            },
-            3
-        )
-        .to(
-            stepsSection,
-            {
-                backgroundColor: "rgba(10, 10, 10, 0)",
-                duration: 2,
-                ease: "none",
-            },
-            4.5
-        )
-        .to(
-            stepsContainer,
-            {
-                transform: "translateX(0)",
-                duration: 2,
-                ease: "power1.out",
-            },
-            5.5
-        )
-        .to(
-            stepsContainer,
-            {
-                x: () => -calculateEndPosition(),
-                duration: 4,
-                ease: "none",
-            },
-            7
-        );
-};
+//     stepsTimeline
+//         .to(
+//             heroTitle,
+//             {
+//                 fontSize: "8rem",
+//                 duration: 2,
+//                 ease: "power2.out",
+//             },
+//             0.5
+//         )
+//         .to(
+//             heroTitle,
+//             {
+//                 scale: 200,
+//                 xPercent: 325,
+//                 opacity: 0,
+//                 duration: 2.5,
+//                 ease: "power2.inOut",
+//             },
+//             3
+//         )
+//         .to(
+//             stepsSection,
+//             {
+//                 backgroundColor: "rgba(10, 10, 10, 0)",
+//                 duration: 2,
+//                 ease: "none",
+//             },
+//             4.5
+//         )
+//         .to(
+//             stepsContainer,
+//             {
+//                 transform: "translateX(0)",
+//                 duration: 2,
+//                 ease: "power1.out",
+//             },
+//             5.5
+//         )
+//         .to(
+//             stepsContainer,
+//             {
+//                 x: () => -calculateEndPosition(),
+//                 duration: 4,
+//                 ease: "none",
+//             },
+//             7
+//         );
+// };

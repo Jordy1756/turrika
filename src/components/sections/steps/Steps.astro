@@ -1,17 +1,12 @@
 ---
-import StepCard from "@components/StepCard.astro";
+import StepCard from "@components/sections/steps/StepCard.astro";
+import { steps } from "@data";
 ---
 
 <section id="steps">
     <h2>Manos a la obra</h2>
     <div>
-        <StepCard index="1" description="Cortar el queso en cuadritos o tiras, según preferencia." />
-        <StepCard index="2" description="Colocar el queso en una cacerola a fuego lento." />
-        <StepCard index="3" description="Añadir la miel o el dulce elegido sobre el queso." />
-        <StepCard index="4" description="Cocinar a fuego lento durante 30 minutos " />
-        <StepCard index="5" description="Pinchar el queso para que absorba el dulce." />
-        <StepCard index="6" description="Espolvorear canela al gusto, si se desea." />
-        <StepCard index="7" description="Servir caliente o frío y disfrutar al gusto." />
+        {steps.map((step, index) => <StepCard index={index + 1 + ""} description={step.description} />)}
     </div>
 </section>
 

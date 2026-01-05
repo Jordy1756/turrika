@@ -1,93 +1,64 @@
 ---
 import IngredientCard from "@components/sections/ingredients/IngredientCard.astro";
+import { ingredients } from "@data";
 ---
 
-<section id="ingredients">
+<section id="ingredients" class="ingredients">
+    <span>Ingredientes</span>
+
+    <article>
+        <h2>Ingredientes</h2>
+        <p>La simplicidad de tres elementos que crean una experiencia sensorial única.</p>
+    </article>
+
     <div>
-        <span>Ingredientes</span>
-        <article>
-            <h2>Ingredientes</h2>
-            <p>La simplicidad de tres elementos que crean una experiencia sensorial única.</p>
-        </article>
-    </div>
-    <div>
-        <IngredientCard
-            index={"1"}
-            image="https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/queso_uiprix.webp"
-            alt="Bloque de queso sin sal fresco de color blanco"
-            name="Queso sin sal"
-            description="Base fundamental que aporta cremosidad."
-            quantity="½ kilo"
-        />
-        <IngredientCard
-            index={"2"}
-            image="https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323457/dulce_d1ednb.webp"
-            alt="Cubos de dulce o panela de color cafe"
-            name="Dulce o miel"
-            quantity="½ tapa o 1 taza"
-            description="Dulzor esencial para el balance perfecto."
-        />
-        <IngredientCard
-            index={"3"}
-            image="https://res.cloudinary.com/dygwpgeq9/image/upload/v1748323458/canela_ppwdk8.webp"
-            alt="Ramitas de canela en polvo y enteras de color marrón"
-            name="Canela"
-            quantity="Al gusto"
-            description="Opcional, añade aroma y carácter."
-        />
+        {
+            ingredients.map((ingredient, index) => (
+                <IngredientCard
+                    index={index + 1 + ""}
+                    image={ingredient.image}
+                    name={ingredient.name}
+                    description={ingredient.description}
+                    quantity={ingredient.quantity}
+                />
+            ))
+        }
     </div>
 </section>
 
 <style>
-    section {
+    .ingredients {
         position: relative;
-        width: 100%;
-        display: flex;
-        overflow: clip;
-        background-color: var(--neutral-900);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: var(--primary-900);
     }
 
-    section > div {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    section > div:first-child {
-        position: sticky;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        padding: 1rem;
-        height: 100dvh;
-    }
-
-    section > div:last-child {
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(15px);
-    }
-
-    section > div > span {
-        font-size: var(--text-hero-giant);
-        text-transform: uppercase;
-        font-weight: 400;
-        color: var(--primary-50);
+    .ingredients > span {
         position: absolute;
         top: 32px;
         left: 50%;
-        transform: translateX(-31%);
+        transform: translateX(-50%);
+        color: var(--primary-50);
+        font-size: var(--text-hero-giant);
+        font-weight: 500;
+        text-transform: uppercase;
     }
 
-    section > div > article {
-        padding: 2rem;
+    .ingredients > article {
+        position: sticky;
+        top: 0;
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         gap: 1rem;
+        padding: 2rem;
+        height: 100dvh;
+        align-self: start;
+        background-color: red;
     }
 
-    section > div > article > h2::before {
+    .ingredients > article > h2::before {
         content: "";
         position: absolute;
         bottom: 0;
@@ -97,31 +68,23 @@ import IngredientCard from "@components/sections/ingredients/IngredientCard.astr
         background-color: var(--primary-200);
     }
 
-    section > div > article > h2 {
+    .ingredients > article > h2 {
         position: relative;
         font-size: var(--text-display-small);
         color: var(--primary-200);
     }
 
-    section > div > article > p {
+    .ingredients > article > p {
         margin-left: 32px;
-        max-width: 40ch;
+        max-width: 50ch;
+        font-family: var(--manrope-font);
+        font-weight: 400;
     }
 
-    @media screen and (width <= 1200px) {
-        section > div > article {
-            padding: 0;
-        }
-    }
-
-    @media screen and (width <= 768px) {
-        section > div:first-child {
-            display: none;
-        }
-
-        section > div:last-child {
-            backdrop-filter: none;
-            background-color: var(--neutral-900);
-        }
+    .ingredients > div {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
     }
 </style>

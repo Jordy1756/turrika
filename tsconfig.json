@@ -6,11 +6,9 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": ["src/components/*"],
+            "@data": ["src/data/data.json"],
             "@layouts/*": ["src/layouts/*"],
-            "@sections/*": ["src/sections/*"],
-            "@utils/*": ["src/utils/*"],
             "@scripts/*": ["src/scripts/*"],
-            "@constants/*": ["src/constants/*"]
         }
     }
 }
