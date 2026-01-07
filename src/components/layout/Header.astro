@@ -76,7 +76,6 @@ import CloseIcon from "@components/icons/Close.astro";
 
     .nav__dialog {
         top: 0;
-        left: auto;
         right: 0;
         display: flex;
         min-height: 100dvh;
@@ -85,12 +84,28 @@ import CloseIcon from "@components/icons/Close.astro";
         backdrop-filter: var(--dialog-blur);
         transform: translateX(100%);
         transition:
-            transform 0.5s ease-in-out,
-            display 0.5s ease-in allow-discrete;
+            transform 0.3s ease-in-out,
+            overlay 0.3s ease-in-out allow-discrete,
+            display 0.3s ease-in-out allow-discrete;
     }
 
-    .nav__dialog[open] {
+    .nav__dialog:popover-open {
         transform: translateX(0);
+    }
+
+    .nav__dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+        transition:
+            background-color 0.3s ease-in-out,
+            backdrop-filter 0.3s ease-in-out,
+            overlay 0.3s ease-in-out allow-discrete,
+            display 0.3s ease-in-out allow-discrete;
+    }
+
+    .nav__dialog:popover-open::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
     }
 
     .nav__dialog::backdrop {
@@ -138,54 +153,11 @@ import CloseIcon from "@components/icons/Close.astro";
     }
 
     @starting-style {
-        .nav__dialog[open] {
-            transform: translateX(100%);
-        }
-    }
-
-    [popover] {
-        margin: 0;
-        padding: 0;
-        border: none;
-        inset: unset;
-        top: 0;
-        right: 0;
-        min-height: 100dvh;
-        max-width: min(500px, 90vw);
-        background-color: var(--dialog-background-color);
-        backdrop-filter: var(--dialog-blur);
-        transform: translateX(100%);
-        transition:
-            transform 0.5s ease-in-out,
-            overlay 0.5s ease-in-out allow-discrete,
-            display 0.5s ease-in-out allow-discrete;
-    }
-
-    [popover]:popover-open {
-        transform: translateX(0);
-    }
-
-    [popover]::backdrop {
-        background-color: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(0px);
-        transition:
-            background-color 0.5s ease-in-out,
-            backdrop-filter 0.5s ease-in-out,
-            overlay 0.5s ease-in-out allow-discrete,
-            display 0.5s ease-in-out allow-discrete;
-    }
-
-    [popover]:popover-open::backdrop {
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(4px);
-    }
-
-    @starting-style {
-        [popover]:popover-open {
+        .nav__dialog:popover-open {
             transform: translateX(100%);
         }
 
-        [popover]:popover-open::backdrop {
+        .nav__dialog:popover-open::backdrop {
             background-color: rgba(0, 0, 0, 0);
             backdrop-filter: blur(0px);
         }
